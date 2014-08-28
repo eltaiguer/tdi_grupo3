@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Kinect;
+using System.IO;
+using System.Xml;
 
 namespace MovementData
 {
-    class Class1
+    public class Movement
     {
         public List<DataMovement> movementRecord = new List<DataMovement>();
         public DataMovement previousHandRight = null;
@@ -30,9 +32,9 @@ namespace MovementData
                     }
                     else
                     {
-                        float dX = (float)Math.Pow((data.xPosition-previousHandRight.xPosition),2);
-                        float dY = (float)Math.Pow((data.yPosition - previousHandRight.yPosition), 2);
-                        float dZ = (float)Math.Pow((data.zPosition - previousHandRight.zPosition), 2);
+                        float dX = (float)Math.Pow((data.xPosition - previousHandRight.xPosition) * 30,2);
+                        float dY = (float)Math.Pow((data.yPosition - previousHandRight.yPosition) * 30, 2);
+                        float dZ = (float)Math.Pow((data.zPosition - previousHandRight.zPosition) * 30, 2);
 
                         data.speed = (float)Math.Sqrt(dX + dY + dZ);
                     }
@@ -47,6 +49,34 @@ namespace MovementData
             }
         }
 
+        public void saveToTXT()
+        {
+            using (XmlWriter writer = XmlWriter.Create("movimientosXML.xml"))
+            {
 
-    }
+                writer.WriteStartDocument();
+                writer.WriteStartElement("Movimientos");
+                foreach (DataMovement dm in movementRecord)
+                {
+                    writer.WriteStartElement("HandRight");
+
+                    writer.WriteElementString("X", dm.xPosition.ToString());
+                    writer.WriteElementString("Y", dm.yPosition.ToString());
+                    writer.WriteElementString("Z", dm.zPosition.ToString());
+                    writer.WriteElementString("Speed", dm.speed.ToString());
+
+                    writer.WriteEndElement();
+
+                }
+
+                writer.WriteEndElement();
+	            writer.WriteEndDocument();
+            }
+
+
+
+        }
+            
+        }
+
 }

@@ -10,6 +10,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
     using System.Windows;
     using System.Windows.Media;
     using Microsoft.Kinect;
+    using MovementData;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -80,6 +81,8 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// Drawing image that we will display
         /// </summary>
         private DrawingImage imageSource;
+
+        private Movement _movement = new Movement();
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -194,6 +197,8 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             {
                 this.sensor.Stop();
             }
+
+            _movement.saveToTXT();
         }
 
         /// <summary>
@@ -228,6 +233,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                         if (skel.TrackingState == SkeletonTrackingState.Tracked)
                         {
                             this.DrawBonesAndJoints(skel, dc);
+                            _movement.addMovement(skel);
                         }
                         else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
                         {
