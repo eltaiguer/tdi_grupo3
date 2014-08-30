@@ -108,12 +108,6 @@
     <Resource Include="Images\UncheckedHover.png" />
     <Resource Include="Images\UncheckedNormal.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\Tracking.csproj">
-      <Project>{f957450c-a57b-41a9-98ff-7a85864e1615}</Project>
-      <Name>Tracking</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
