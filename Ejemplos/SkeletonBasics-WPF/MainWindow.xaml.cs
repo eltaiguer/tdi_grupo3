@@ -198,7 +198,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 this.sensor.Stop();
             }
 
-            _movement.saveToTXT();
+            _movement.saveToXml();
         }
 
         /// <summary>
