@@ -108,9 +108,9 @@
     <Resource Include="Images\UncheckedNormal.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MovementData\MovementData\MovementData\TrackMovement.csproj">
+    <ProjectReference Include="C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\Tracking.csproj">
       <Project>{f957450c-a57b-41a9-98ff-7a85864e1615}</Project>
-      <Name>TrackMovement</Name>
+      <Name>Tracking</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
