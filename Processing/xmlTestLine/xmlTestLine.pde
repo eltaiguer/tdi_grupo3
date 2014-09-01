@@ -1,12 +1,12 @@
 XML xml;
 
 void setup() {
-  xml = loadXML("caca.xml");
+  xml = loadXML("movements.xml");
   
   //String name=;
   
   println(xml.getName());
-  XML[] jointCollection = xml.getChildren("HandRight");
+  XML[] jointCollection = xml.getChildren("Joint"); //obtengo todos los joints
   
   
   //println(Float.parseFloat(jointCollection[0].getChild("X").getContent()));
@@ -17,32 +17,49 @@ void setup() {
   //smooth();
 
   noFill();
-  stroke(0);
- 
   //beginShape();
-  for (int i = 0; i < jointCollection.length-1; i=i+1){
+  
+  println(jointCollection.length);
+  for (int j = 0; j < jointCollection.length-1; j=j+1){
     
-    float xPosition1 = jointCollection[i].getChild("X").getFloatContent()*400;
-    float yPosition1 = jointCollection[i].getChild("Y").getFloatContent()*400;
-    float zPosition1 = jointCollection[i].getChild("Z").getFloatContent()*400;
-    float speed = jointCollection[i+1].getChild("Speed").getFloatContent();
+    XML[] joints1 = jointCollection[j].getChildren();
+    XML[] joints2 = jointCollection[j+1].getChildren(); //obtengo los handright, handleft, etc
+   // println(j);
+    for (int i = 0; i < joints1.length; i=i+1){       
+      println(joints1[i].getName());
+      float xPosition1 = joints1[i].getChild("Position").getChild("X").getFloatContent()*400;
+      float yPosition1 = joints1[i].getChild("Position").getChild("Y").getFloatContent()*400;
+      float zPosition1 = joints1[i].getChild("Position").getChild("Z").getFloatContent()*400;
+      
+      
+      float xSpeed1 = joints1[i].getChild("Speed").getChild("X").getFloatContent();
+      float ySpeed1 = joints1[i].getChild("Speed").getChild("Y").getFloatContent();
+      float zSpeed1 = joints1[i].getChild("Speed").getChild("Z").getFloatContent();
+      
+      
+      float xPosition2 = joints2[i].getChild("Position").getChild("X").getFloatContent()*400;
+      float yPosition2 = joints2[i].getChild("Position").getChild("Y").getFloatContent()*400;
+      float zPosition2 = joints2[i].getChild("Position").getChild("Z").getFloatContent()*400;
+      
     
-    float xPosition2 = jointCollection[i+1].getChild("X").getFloatContent()*400;
-    float yPosition2 = jointCollection[i+1].getChild("Y").getFloatContent()*400;
-    float zPosition2 = jointCollection[i+1].getChild("Z").getFloatContent()*400;
+      float xSpeed2 = joints2[i].getChild("Speed").getChild("X").getFloatContent();
+      float ySpeed2 = joints2[i].getChild("Speed").getChild("Y").getFloatContent();
+      float zSpeed2 = joints2[i].getChild("Speed").getChild("Z").getFloatContent();    
+           
+      if (joints1[i].getName()=="HandRight"){
+        stroke(255,27,27); //rojo
+      }
+      else if (joints1[i].getName()=="HandLeft"){
+        stroke(37,27,227); //azul
+      }
+      else if (joints1[i].getName()=="Head"){
+        stroke(18,166,40); //verde
+      }
+   
+     // stroke(abs(xPosition1),abs(yPosition1),abs(zPosition1)); 
+      line(xPosition1, -yPosition1,xPosition2,-yPosition2);
     
-    
-    //println("#"+hex((int)speed,6));
-    //color c = color(hex((int)speed,6));
-    
-    //int thickne
-    if(abs(speed)>4){
-    println(abs(speed));
     }
-    strokeWeight(abs(speed)/4);
-    stroke(abs(xPosition1),abs(yPosition1),abs(zPosition1)); 
-    line(xPosition1, yPosition1,xPosition2,yPosition2);
-    
     // float speed = jointCollection[i].getChild("Speed").getFloatContent();
     
 //    if (i==0 || i== jointCollection.length-1){
@@ -52,6 +69,8 @@ void setup() {
     
     //println("X:"+xPosition+" Y:"+yPosition+" Z:"+zPosition+" Speed:"+speed);
   }
+  
+  
   //endShape();
 }
 
