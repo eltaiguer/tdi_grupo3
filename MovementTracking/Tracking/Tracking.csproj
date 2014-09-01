@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Movement.cs" />
-    <Compile Include="DataMovement.cs" />
+    <Compile Include="MovementMgr.cs" />
+    <Compile Include="JointPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

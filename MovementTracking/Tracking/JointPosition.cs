@@ -6,9 +6,8 @@ using Microsoft.Kinect;
 
 namespace MovementData
 {
-    public class DataMovement
+    public class JointPosition
     {
-        public JointType joint;
         public float xPosition, yPosition, zPosition;
         public float xSpeed, ySpeed, zSpeed;
     }

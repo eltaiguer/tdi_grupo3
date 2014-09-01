@@ -82,14 +82,17 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         /// </summary>
         private DrawingImage imageSource;
 
-        private Movement _movement = new Movement();
+        private MovementMgr _movement = new MovementMgr();
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
+            // inicializo el mgr
+            _movement.Initialize();
         }
 
         /// <summary>
@@ -233,6 +236,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                         if (skel.TrackingState == SkeletonTrackingState.Tracked)
                         {
                             this.DrawBonesAndJoints(skel, dc);
+                            
                             _movement.addMovement(skel);
                         }
                         else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
