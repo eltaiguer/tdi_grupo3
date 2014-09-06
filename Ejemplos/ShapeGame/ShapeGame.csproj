@@ -152,6 +152,10 @@
     <None Include="Squeeze.wav" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MovementTracking\Tracking\Tracking.csproj">
+      <Project>{f957450c-a57b-41a9-98ff-7a85864e1615}</Project>
+      <Name>Tracking</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KinectWpfViewers\Microsoft.Samples.Kinect.WpfViewers.csproj">
       <Project>{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}</Project>
       <Name>Microsoft.Samples.Kinect.WpfViewers</Name>

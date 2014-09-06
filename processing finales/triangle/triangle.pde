@@ -13,7 +13,7 @@ void drawLine(float x1,float y1, float z1){
   rotate(radians(angle));
  // println("x1:"+x1+" y1:"+y1+" x2:"+(x1+sin(angle)*z1)+" y2:"+(-y1-cos(angle)*z1));
 //  line(x1, -y1, x1+cos(angle)-z1,-y1 -sin(angle)*z1);
-  strokeWeight(2.0);
+  strokeWeight(0.5);
   line(0,0,z1,0);
   popMatrix();
   angle+=1.0;
@@ -22,7 +22,7 @@ void drawLine(float x1,float y1, float z1){
 
 
 void setup() {
-  xml = loadXML("movements2.xml");
+  xml = loadXML("movements.xml");
   
   //String name=;
   
@@ -50,7 +50,7 @@ void setup() {
       //println(joints1[i].getName());
       float xPosition1 = joints1[i].getChild("Position").getChild("X").getFloatContent()*400;
       float yPosition1 = joints1[i].getChild("Position").getChild("Y").getFloatContent()*400;
-      float zPosition1 = joints1[i].getChild("Position").getChild("Z").getFloatContent()*400;
+      float zPosition1 = joints1[i].getChild("Position").getChild("Z").getFloatContent()*40;
       
       float lineLength = zPosition1;   
       float lines = 1;

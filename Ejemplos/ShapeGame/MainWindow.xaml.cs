@@ -24,6 +24,7 @@ namespace ShapeGame
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Samples.Kinect.WpfViewers;
+    using MovementData;
     using ShapeGame.Speech;
     using ShapeGame.Utils;
 
@@ -82,8 +83,13 @@ namespace ShapeGame
 
         #region ctor + Window Events
 
+        private MovementMgr _movement = new MovementMgr();
+
         public MainWindow()
         {
+            // inicializo el mgr
+            _movement.Initialize();
+
             this.KinectSensorManager = new KinectSensorManager();
             this.KinectSensorManager.KinectSensorChanged += this.KinectSensorChanged;
             this.DataContext = this.KinectSensorManager;
@@ -163,6 +169,8 @@ namespace ShapeGame
             Properties.Settings.Default.PrevWinPosition = this.RestoreBounds;
             Properties.Settings.Default.WindowState = (int)this.WindowState;
             Properties.Settings.Default.Save();
+
+            _movement.saveToXml();
         }
 
         private void WindowClosed(object sender, EventArgs e)
@@ -263,6 +271,8 @@ namespace ShapeGame
                     {
                         if (SkeletonTrackingState.Tracked == skeleton.TrackingState)
                         {
+                            _movement.addMovement(skeleton);
+
                             Player player;
                             if (this.players.ContainsKey(skeletonSlot))
                             {

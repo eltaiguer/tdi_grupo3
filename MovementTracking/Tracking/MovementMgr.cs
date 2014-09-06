@@ -21,6 +21,8 @@ namespace MovementData
             trackedJoints.Add(JointType.HandRight);
             trackedJoints.Add(JointType.HandLeft);
             trackedJoints.Add(JointType.Head);
+            trackedJoints.Add(JointType.AnkleRight);
+            trackedJoints.Add(JointType.AnkleLeft);
         }
 
         public void addMovement(Skeleton skeleton)
