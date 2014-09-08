@@ -1,0 +1,4 @@
+C:\Users\Taiguer\Desktop\Entrega\MovementTracking\Tracking\bin\Release\MovementData.dll
+C:\Users\Taiguer\Desktop\Entrega\MovementTracking\Tracking\bin\Release\MovementData.pdb
+C:\Users\Taiguer\Desktop\Entrega\MovementTracking\Tracking\obj\Release\MovementData.dll
+C:\Users\Taiguer\Desktop\Entrega\MovementTracking\Tracking\obj\Release\MovementData.pdb

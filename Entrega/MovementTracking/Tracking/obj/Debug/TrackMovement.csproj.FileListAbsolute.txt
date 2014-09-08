@@ -1,0 +1,4 @@
+C:\Users\Gaston\Facultad\TDI\GIT\tdi_grupo3\MovementData\MovementData\MovementData\bin\Debug\MovementData.dll
+C:\Users\Gaston\Facultad\TDI\GIT\tdi_grupo3\MovementData\MovementData\MovementData\bin\Debug\MovementData.pdb
+C:\Users\Gaston\Facultad\TDI\GIT\tdi_grupo3\MovementData\MovementData\MovementData\obj\Debug\MovementData.dll
+C:\Users\Gaston\Facultad\TDI\GIT\tdi_grupo3\MovementData\MovementData\MovementData\obj\Debug\MovementData.pdb

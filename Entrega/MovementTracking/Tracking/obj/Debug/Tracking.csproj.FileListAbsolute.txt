@@ -1,0 +1,9 @@
+C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\bin\Debug\MovementData.dll
+C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\bin\Debug\MovementData.pdb
+C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\obj\Debug\MovementData.dll
+C:\Users\Taiguer\Desktop\tdi_grupo3\MovementData\MovementData\MovementData\obj\Debug\MovementData.pdb
+E:\Facultad\tdi\GIT\tdi_grupo3\MovementTracking\Tracking\bin\Debug\MovementData.dll
+E:\Facultad\tdi\GIT\tdi_grupo3\MovementTracking\Tracking\bin\Debug\MovementData.pdb
+E:\Facultad\tdi\GIT\tdi_grupo3\MovementTracking\Tracking\obj\Debug\MovementData.dll
+E:\Facultad\tdi\GIT\tdi_grupo3\MovementTracking\Tracking\obj\Debug\MovementData.pdb
+E:\Facultad\tdi\GIT\tdi_grupo3\MovementTracking\Tracking\obj\Debug\Tracking.csprojResolveAssemblyReference.cache
