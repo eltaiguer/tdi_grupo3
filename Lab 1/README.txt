@@ -1,0 +1,1 @@
+El proyecto trata de aprovechar el movimiento generado por usuario al jugar con el Kinect, adquiriendo sus gestos y almacenándolos para luego recuperarlos y generar con estos un discurso artístico, representado en una imagen pictórica.
