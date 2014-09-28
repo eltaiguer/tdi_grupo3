@@ -1,0 +1,921 @@
+﻿Build started 26/09/2014 09:30:50 p.m..
+     1>Project "E:\Facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\apps\myApps\Doll_Head_Pose_MSFT-master\blinkSpace.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\..\addons\ofxXmlSettings\src /I..\..\..\addons\ofxXmlSettings\libs /I..\..\..\ofxOpenCv\libs\opencv\include\opencv2\core /I..\..\..\ofxOpenCv\libs\opencv\include\opencv /I..\..\..\addons\ofxOpenCv\src /I..\..\..\libs\openFrameworks /I..\..\..\libs\openFrameworks\graphics /I..\..\..\libs\openFrameworks\app /I..\..\..\libs\openFrameworks\sound /I..\..\..\libs\openFrameworks\utils /I..\..\..\libs\openFrameworks\communication /I..\..\..\libs\openFrameworks\video /I..\..\..\libs\openFrameworks\types /I..\..\..\libs\openFrameworks\math /I..\..\..\libs\openFrameworks\3d /I..\..\..\libs\openFrameworks\gl /I..\..\..\libs\openFrameworks\events /I..\..\..\libs\glut\include /I..\..\..\libs\rtAudio\include /I..\..\..\libs\quicktime\include /I..\..\..\libs\freetype\include /I..\..\..\libs\freetype\include\freetype2 /I..\..\..\libs\freeImage\include /I..\..\..\libs\fmodex\include /I..\..\..\libs\videoInput\include /I..\..\..\libs\glew\include\ /I..\..\..\libs\glu\include /I..\..\..\libs\tess2\include /I..\..\..\libs\cairo\include\cairo /I..\..\..\libs\poco\include /I..\..\..\libs\glfw\include /I..\..\..\libs\openssl\include /I..\..\..\addons /Isrc /I..\..\..\addons\ofxMidi\src /I..\..\..\addons\ofxMidi\src\desktop\rtmidi /I..\..\..\addons\ofxOsc\src /I..\..\..\addons\ofxOsc\libs\oscpack\src\osc /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32 /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix /I..\..\..\addons\ofxOsc\libs\oscpack\src\ip /I..\..\..\addons\ofxOsc\libs\oscpack\src /I..\..\..\addons\ofxOsc\libs\oscpack /I..\..\..\addons\ofxOsc\libs /I..\..\..\addons\ofxOsc /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D POCO_STATIC /D CAIRO_WIN32_STATIC_BUILD /D DISABLE_SOME_FLOATING_POINT /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Release\\" /Fd"obj\Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.cpp ..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.cpp ..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.cpp ..\..\..\addons\ofxMidi\src\ofxBaseMidi.cpp ..\..\..\addons\ofxMidi\src\ofxMidi.cpp ..\..\..\addons\ofxMidi\src\ofxMidiIn.cpp ..\..\..\addons\ofxMidi\src\ofxMidiMessage.cpp ..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp ..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp ..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp ..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp ..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp ..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp ..\..\..\addons\ofxOsc\src\ofxOscSender.cpp ..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp ..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp ..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp ..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp src\Chromation.cpp src\FaceAnalizer.cpp src\FaceData.cpp src\FaceFrame.cpp src\FaceFrameWalrus.cpp src\FacesManagerWalrus.cpp src\FacesManagerTraces.cpp src\FaceTrackerManager.cpp src\FaceWalrus.cpp src\FTHelper.cpp src\KinectManager.cpp src\KinectSensor.cpp src\main.cpp src\MatrixVibroSound.cpp src\MidiGenerator.cpp src\Traces.cpp src\stdafx.cpp src\tom.cpp src\VibrationGenerator.cpp src\VibrationPattern.cpp src\Visualize.cpp
+         RtMidi.cpp
+         ofxRtMidiIn.cpp
+         ofxRtMidiOut.cpp
+         ofxBaseMidi.cpp
+         ofxMidi.cpp
+         ofxMidiIn.cpp
+         ofxMidiMessage.cpp
+         ofxMidiOut.cpp
+         ofxCvColorImage.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvContourFinder.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvFloatImage.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvGrayscaleImage.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvHaarFinder.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvImage.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         ofxCvShortImage.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         IpEndpointName.cpp
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(46): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(52): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(61): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(67): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(71): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp(78): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+         NetworkingUtils.cpp
+         UdpSocket.cpp
+         NetworkingUtilsWin.cpp
+         UdpSocketWin.cpp
+         Generating Code...
+         Compiling...
+         OscOutboundPacketStream.cpp
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp(339): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp(581): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp(601): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+         OscPrintReceivedElements.cpp
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp(118): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\time.inl(86) : see declaration of 'ctime'
+     1>..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp(121): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+         OscReceivedElements.cpp
+         OscTypes.cpp
+         ofxOscBundle.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         ofxOscMessage.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         ofxOscReceiver.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         ofxOscSender.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         tinyxml.cpp
+         tinyxmlerror.cpp
+         tinyxmlparser.cpp
+         ofxXmlSettings.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         Chromation.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         FaceAnalizer.cpp
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FaceData.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FaceFrame.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FaceFrameWalrus.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FacesManagerWalrus.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FacesManagerTraces.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FaceTrackerManager.cpp
+     1>..\..\..\libs\openFrameworks\graphics\ofPixels.h(170): warning C4003: not enough actual parameters for macro 'max'
+     1>..\..\..\libs\openFrameworks\graphics\ofPixels.h(171): warning C4003: not enough actual parameters for macro 'max'
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\openFrameworks\types\ofParameter.h(157): warning C4003: not enough actual parameters for macro 'min'
+     1>..\..\..\libs\openFrameworks\types\ofParameter.h(158): warning C4003: not enough actual parameters for macro 'max'
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         Generating Code...
+         Compiling...
+         FaceWalrus.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FTHelper.cpp
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2370: 'IFTFaceTracker' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'IFTFaceTracker'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2370: 'IFTImage' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36) : see declaration of 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(128): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(129): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(272): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(273): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(370): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(371): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(437): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(438): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2061: syntax error : identifier 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pVideoFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pDepthFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'zoomFactorParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pDepthFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pVideoFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2227: left of '->x' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2227: left of '->y' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2146: syntax error : missing ';' before identifier 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2086: 'int INuiAudioBeam' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46) : see declaration of 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2146: syntax error : missing ';' before identifier 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2086: 'int INuiFrameTexture' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52) : see declaration of 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2146: syntax error : missing ';' before identifier 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2086: 'int INuiCoordinateMapperParametersChangedEvent' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58) : see declaration of 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2146: syntax error : missing ';' before identifier 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2086: 'int INuiCoordinateMapper' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64) : see declaration of 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2146: syntax error : missing ';' before identifier 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2086: 'int INuiColorCameraSettings' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70) : see declaration of 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2146: syntax error : missing ';' before identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2086: 'int INuiDepthFilter' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76) : see declaration of 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2146: syntax error : missing ';' before identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2086: 'int INuiSensor' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82) : see declaration of 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(420): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(420): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(760): error C2061: syntax error : identifier 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1721): error C2061: syntax error : identifier 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1736): error C2061: syntax error : identifier 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1742): error C2061: syntax error : identifier 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1745): error C2061: syntax error : identifier 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1756): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1759): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1763): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2143): error C2061: syntax error : identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2178): error C2061: syntax error : identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): error C2065: 'ppDmo' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): warning C4229: anachronism used : modifiers on data are ignored
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): error C2491: 'NuiGetAudioSource' : definition of dllimport data not allowed
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         KinectManager.cpp
+     1>..\..\..\libs\openFrameworks\graphics\ofPixels.h(170): warning C4003: not enough actual parameters for macro 'max'
+     1>..\..\..\libs\openFrameworks\graphics\ofPixels.h(171): warning C4003: not enough actual parameters for macro 'max'
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\openFrameworks\types\ofParameter.h(157): warning C4003: not enough actual parameters for macro 'min'
+     1>..\..\..\libs\openFrameworks\types\ofParameter.h(158): warning C4003: not enough actual parameters for macro 'max'
+         KinectSensor.cpp
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2370: 'IFTFaceTracker' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'IFTFaceTracker'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2370: 'IFTImage' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36) : see declaration of 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(128): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(129): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(272): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(273): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(370): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(371): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(437): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(438): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2061: syntax error : identifier 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pVideoFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pDepthFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'zoomFactorParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pDepthFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pVideoFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2227: left of '->x' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2227: left of '->y' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2146: syntax error : missing ';' before identifier 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46): error C2086: 'int INuiAudioBeam' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(46) : see declaration of 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2146: syntax error : missing ';' before identifier 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52): error C2086: 'int INuiFrameTexture' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(52) : see declaration of 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2146: syntax error : missing ';' before identifier 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58): error C2086: 'int INuiCoordinateMapperParametersChangedEvent' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(58) : see declaration of 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2146: syntax error : missing ';' before identifier 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64): error C2086: 'int INuiCoordinateMapper' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(64) : see declaration of 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2146: syntax error : missing ';' before identifier 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70): error C2086: 'int INuiColorCameraSettings' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(70) : see declaration of 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2146: syntax error : missing ';' before identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76): error C2086: 'int INuiDepthFilter' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(76) : see declaration of 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2146: syntax error : missing ';' before identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2378: 'interface' : redefinition; symbol cannot be overloaded with a typedef
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82): error C2086: 'int INuiSensor' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(82) : see declaration of 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(420): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(420): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(760): error C2061: syntax error : identifier 'INuiCoordinateMapperParametersChangedEvent'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1721): error C2061: syntax error : identifier 'INuiAudioBeam'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1736): error C2061: syntax error : identifier 'INuiCoordinateMapper'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1742): error C2061: syntax error : identifier 'INuiFrameTexture'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1745): error C2061: syntax error : identifier 'INuiColorCameraSettings'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1756): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1759): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(1763): error C2061: syntax error : identifier 'INuiDepthFilter'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2143): error C2061: syntax error : identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2178): error C2061: syntax error : identifier 'INuiSensor'
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): error C2065: 'ppDmo' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): warning C4229: anachronism used : modifiers on data are ignored
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): error C2491: 'NuiGetAudioSource' : definition of dllimport data not allowed
+     1>C:\Program Files\Microsoft SDKs\Kinect\v1.8\\inc\NuiSensor.h(2180): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         main.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         MatrixVibroSound.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         MidiGenerator.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         Traces.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         stdafx.cpp
+         tom.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         VibrationGenerator.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>e:\facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\addons\ofxopencv\src\ofxCvConstants.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         VibrationPattern.cpp
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(126): warning C4250: 'Poco::InputStreamConverter' : inherits 'std::basic_istream<_Elem,_Traits>::std::basic_istream<_Elem,_Traits>::_Add_vtordisp1' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\istream(74) : see declaration of 'std::basic_istream<_Elem,_Traits>::_Add_vtordisp1'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>..\..\..\libs\poco\include\Poco/StreamConverter.h(144): warning C4250: 'Poco::OutputStreamConverter' : inherits 'std::basic_ostream<_Elem,_Traits>::std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2' via dominance
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\ostream(90) : see declaration of 'std::basic_ostream<_Elem,_Traits>::_Add_vtordisp2'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+         Visualize.cpp
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(35): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2144: syntax error : 'int' should be preceded by ';'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(37): error C2086: 'int interface' : redefinition
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'interface'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(90): error C2370: 'IFTFaceTracker' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(34) : see declaration of 'IFTFaceTracker'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(97): error C2370: 'IFTImage' : redefinition; different storage class
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(36) : see declaration of 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(128): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(129): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(272): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(273): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(370): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(371): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(437): error C2065: 'IUnknown' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(438): error C2448: 'DECLARE_INTERFACE_' : function-style initializer appears to be a function definition
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2061: syntax error : identifier 'IFTImage'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(546): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C2143: syntax error : missing ';' before '*'
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(547): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pVideoFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'pDepthFrameParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(538): error C2065: 'zoomFactorParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pDepthFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(540): error C2614: 'FT_SENSOR_DATA' : illegal member initialization: 'pVideoFrame' is not a base or member
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(541): error C2227: left of '->x' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2065: 'pViewOffsetParam' : undeclared identifier
+     1>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(542): error C2227: left of '->y' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>src\Visualize.cpp(12): error C2065: 'pColorImg' : undeclared identifier
+     1>src\Visualize.cpp(12): error C2065: 'pAAMRlt' : undeclared identifier
+     1>src\Visualize.cpp(12): error C2275: 'UINT32' : illegal use of this type as an expression
+                 C:\Program Files (x86)\Windows Kits\8.0\Include\shared\basetsd.h(76) : see declaration of 'UINT32'
+     1>src\Visualize.cpp(12): error C2146: syntax error : missing ')' before identifier 'color'
+     1>src\Visualize.cpp(12): error C2078: too many initializers
+                 C:\Program Files (x86)\Windows Kits\8.0\Include\shared\basetsd.h(76) : see declaration of 'UINT32'
+     1>src\Visualize.cpp(12): error C2059: syntax error : ')'
+     1>src\Visualize.cpp(13): error C2143: syntax error : missing ';' before '{'
+     1>src\Visualize.cpp(13): error C2447: '{' : missing function header (old-style formal list?)
+     1>src\Visualize.cpp(107): error C2065: 'pColorImg' : undeclared identifier
+     1>src\Visualize.cpp(107): error C2065: 'pModel' : undeclared identifier
+     1>src\Visualize.cpp(107): error C2275: 'FT_CAMERA_CONFIG' : illegal use of this type as an expression
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(525) : see declaration of 'FT_CAMERA_CONFIG'
+     1>src\Visualize.cpp(107): error C2143: syntax error : missing ')' before 'const'
+     1>src\Visualize.cpp(107): error C2078: too many initializers
+                 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\inc\FaceTrackLib.h(525) : see declaration of 'FT_CAMERA_CONFIG'
+     1>src\Visualize.cpp(108): error C2059: syntax error : ')'
+     1>src\Visualize.cpp(109): error C2143: syntax error : missing ';' before '{'
+     1>src\Visualize.cpp(109): error C2447: '{' : missing function header (old-style formal list?)
+         Generating Code...
+     1>Done Building Project "E:\Facultad\tdi\programas\of_v0.8.4_vs_release\of_v0.8.4_vs_release\apps\myApps\Doll_Head_Pose_MSFT-master\blinkSpace.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:01:43.06
