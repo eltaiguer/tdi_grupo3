@@ -749,7 +749,8 @@ void detectHover(){
       
       noFill();
     }else{
-      data[i].setHoveredTo(false);}
+      data[i].setHoveredTo(false);
+    }
   }
 }
 
