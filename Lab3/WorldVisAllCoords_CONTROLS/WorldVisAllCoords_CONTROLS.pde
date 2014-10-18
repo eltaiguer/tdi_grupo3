@@ -39,17 +39,17 @@ class DataHolderCapituloClasePais {
    
 }
 
-class Pais{
-  String NOMBRE_PAIS;
+public class Pais{
+  public String NOMBRE_PAIS;
   
   Pais(String nombre) {
       NOMBRE_PAIS = nombre;
   }
 }
 
-class Clase{
-  String NOMBRE_CLASE;
-  ArrayList<Pais> PAISES;
+public class Clase{
+  public String NOMBRE_CLASE;
+  public ArrayList<Pais> PAISES;
   
   Clase (String nombre) {
       NOMBRE_CLASE = nombre;
@@ -71,9 +71,9 @@ class Clase{
   }
 }
 
-class Capitulo {
-  String NOMBRE_CAPITULO;
-  ArrayList<Clase> CLASES;
+public class Capitulo {
+  public String NOMBRE_CAPITULO;
+  public ArrayList<Clase> CLASES;
   
     Capitulo(String nombre) {
       NOMBRE_CAPITULO = nombre;
@@ -86,8 +86,8 @@ class Capitulo {
     
     Clase find(String nombre){
     
-      println("find en capitulo");
-      println(CLASES.size());
+      ////println("find en capitulo");
+      ////println(CLASES.size());
       for (int i = 0 ; i < CLASES.size(); i++){
           if (nombre.equals(CLASES.get(i).NOMBRE_CLASE)){
              return CLASES.get(i);
@@ -98,19 +98,19 @@ class Capitulo {
     }
 }  
 
-class Estructura {
-   ArrayList<Capitulo> CAPITULOS;
+public class Estructura {
+   public ArrayList<Capitulo> CAPITULOS;
    
    Estructura(){
      CAPITULOS = new ArrayList<Capitulo>();  
    }
    Capitulo find(String nombre){
-     println(" find en capitulos");
-     println("#" + nombre + "#");
+     ////println(" find en capitulos");
+     ////println("#" + nombre + "#");
       for (int i = 0 ; i < CAPITULOS.size(); i++){
-          println("@" + ((CAPITULOS.get(i)).NOMBRE_CAPITULO) + "@");
+          ////println("@" + ((CAPITULOS.get(i)).NOMBRE_CAPITULO) + "@");
           if (nombre.equals((CAPITULOS.get(i)).NOMBRE_CAPITULO)){
-            println("encontre el capitulo"); 
+            ////println("encontre el capitulo"); 
             return CAPITULOS.get(i);
           }
           
@@ -184,10 +184,10 @@ class DataHolder {
    
     //Transform the coordinates into a single floating value
     float coord= int(c[0]) + int(c[1])*MIN_TO_DEG + 0*SEG_TO_DEG; 
-    println(c[0]+","+c[1]);
+    ////println(c[0]+","+c[1]);
     //And check orientation: if first char is 'S' or 'W' set a negative sign
     char orientation=c[2].charAt(0);
-    //println(orientation);
+    ////println(orientation);
     if  (orientation==87 || orientation==83) coord*=-DEG_TO_RAD; else coord*=DEG_TO_RAD;
     return coord;  
   }
@@ -357,7 +357,7 @@ class Table {
   Table(String nombre) {   
     String[] filas = loadStrings(nombre); 
     numRows = filas.length;
-    println("filas: "+numRows);
+    ////println("filas: "+numRows);
     data = new String[numRows][];
     for (int i = 0; i < filas.length; i++) {
       if (trim(filas[i]).length() == 0) {
@@ -401,7 +401,7 @@ class Table {
         return i;
       }
     }
-    println("I didn't found any row called '"+ name+"!'");
+    //println("I didn't found any row called '"+ name+"!'");
     return -1;
   }
 
@@ -471,7 +471,7 @@ TEXT_COL      = 0xaa000000,
 DATA_COL      = 0x99ff0000,
 HOVER_COL     = 0xffffaa00,
 WORLD_TINT    = 0xffffffff,
-LINES_WEIGHT  = 6,
+LINES_WEIGHT  = 3,
 BUFF_LINES_W  = 6;
 float 
 a,b;
@@ -522,17 +522,13 @@ void setup(){
   w= new Globe(200,24,"w.png");
   //t= new Table("WorldVisAllCoords/data/coords2.csv");
   t= new Table("coords2.csv");
-  println("lineas"+t.getNumRows());
+  ////println("lineas"+t.getNumRows());
   data= new DataHolder[t.getNumRows()-1];
   for(int i=0;i<data.length;i++){
     data[i]= new DataHolder(i);  
   }
   
-  ArrayList<String> paises = new ArrayList<String>();
-  paises.add("ARGENTINA");
-  paises.add("ALEMANIA");
-  paises.add("CUBA");
-  mostrarPaises(paises);
+
   
   
   //Obtengo las categorias
@@ -540,31 +536,32 @@ void setup(){
    e = new Estructura();   
     cp5 = new ControlP5(this);
    checkbox = cp5.addCheckBox("checkBox")
-                .setPosition(100, 200)
+                .setPosition(50, 50)
                 .setColorForeground(color(120))
                 .setColorActive(color(255))
-                .setColorLabel(color(255))
-                .setSize(40, 40)
-                .setItemsPerRow(3)
+                .setColorLabel(color(0))
+                .setSize(20, 20)
+                .setItemsPerRow(1)
                 .setSpacingColumn(30)
-                .setSpacingRow(20);
+                .setSpacingRow(10);
    dataCapituloClasePais= new DataHolderCapituloClasePais[t2.getNumRows()-1];
    ArrayList<String> mostrados = new ArrayList<String>();
    nombres  = new HashMap<Integer,String>();
    for(int i=0;i<dataCapituloClasePais.length;i++){
       dataCapituloClasePais[i]= new DataHolderCapituloClasePais(i);  
-      println(  dataCapituloClasePais[i].CAPITULO);
+      //println(  dataCapituloClasePais[i].CAPITULO);
       if (!mostrados.contains(dataCapituloClasePais[i].CAPITULO)) {
           checkbox.addItem(dataCapituloClasePais[i].CAPITULO, i);          
           nombres.put(i,dataCapituloClasePais[i].CAPITULO);                    
           mostrados.add(dataCapituloClasePais[i].CAPITULO);
-          
+      }//if    
           String Cap          = dataCapituloClasePais[i].CAPITULO;
           String Clase_nombre =  dataCapituloClasePais[i].CLASE;
           String Pais_nombre  = dataCapituloClasePais[i].PAIS;
     
+    
       
-          println("cap : " + Cap); 
+          //println("cap : " + Cap); 
                 
           Capitulo c = e.find(Cap);
           
@@ -573,10 +570,10 @@ void setup(){
             e.addCapitulo(c);
           }
           
-          println("cantidad de capitulos: ");
-          println(e.CAPITULOS.size());
+          //println("cantidad de capitulos: ");
+          //println(e.CAPITULOS.size());
           
-          println("nombreClase: "+ Clase_nombre);
+          //println("nombreClase: "+ Clase_nombre);
           Clase cla = c.find(Clase_nombre);
           c = e.find(Cap);
           if (null == cla){
@@ -592,19 +589,19 @@ void setup(){
           }
           
           
-      }//if   
+         
      
       
       
       
    }//for
   
-    println("cantidad de capitulos en total: ");
-    println(e.CAPITULOS.size());
+    //println("cantidad de capitulos en total: ");
+    //println(e.CAPITULOS.size());
     
     for(int k=0; k < e.CAPITULOS.size(); k++){
         Capitulo ca = e.CAPITULOS.get(k);
-        println(" clases del capitulo " + ca.CLASES.size()  ); 
+        println(" clases del capitulo " + ca.CLASES.size()); 
     } 
           
 
@@ -621,7 +618,7 @@ void keyPressed() {
       if (keyCode==(48 + i)) { 
         // the index of checkbox items start at 0
         checkbox.toggle(i);
-        println("toggle "+checkbox.getItem(i).name());
+        //println("toggle "+checkbox.getItem(i).name());
         // also see 
         // checkbox.activate(index);
         // checkbox.deactivate(index);
@@ -656,9 +653,10 @@ void controlEvent(ControlEvent theEvent) {
   if (theEvent.isFrom(checkbox)) {
     myColorBackground = 0;
     
-    //println("##############");
-      //println("chequeados: ");
+    ////println("##############");
+      ////println("chequeados: ");
     
+    ocultarPaises();
     int col = 0;
     for (int i=0;i<checkbox.getArrayValue().length;i++) {
       int n = (int)checkbox.getArrayValue()[i];
@@ -670,30 +668,41 @@ void controlEvent(ControlEvent theEvent) {
       
       if (checkbox.getItem(i).getState()) {
         String nom_cap =   checkbox.getItem(i).getName();
-        println(checkbox.getItem(i).getName());
+        //println(checkbox.getItem(i).getName());
         
-        println("nombre capitulo a buscar: #" + nom_cap + "#");
-        println("clases : ");
+        
+        //println("nombre capitulo a buscar: #" + nom_cap + "#");
+        //println("clases : ");
         Capitulo cap = e.find(nom_cap);
-        println("1");
+        //println("1");
         if (cap != null) {
-          println("2");
-          println("cantidad de clases del capitulo: " + cap.CLASES.size());
+          //println("2");
+          //println("cantidad de clases del capitulo: " + cap.CLASES.size());
+          HashMap<String,String> paises_mostrar = new HashMap<String,String>();
+          
           for (int p = 0; p < cap.CLASES.size(); p++) {
               Clase c = cap.CLASES.get(p);
               
-              println(" ====> "  + c.NOMBRE_CLASE);
+              
+              for (int k = 0; k < c.PAISES.size(); k++){
+                String nom_pais = c.PAISES.get(k).NOMBRE_PAIS;
+                paises_mostrar.put(nom_pais, nom_pais);
+              }
+              
+              //println(" ====> "  + c.NOMBRE_CLASE);
           }
+          
+          mostrarPaises(paises_mostrar);
         }
           
       }
     }
-   // println();    
+   // //println();    
   }
 }
 
 void checkBox(float[] a) {
-  println(a);
+  //println(a);
 }
 
 //@@@ NEW CODE
@@ -744,10 +753,20 @@ void detectHover(){
   }
 }
 
-void mostrarPaises(ArrayList<String> paises){
-  for (int i=0; i<data.length; i++){
-    if (paises.contains(data[i].COUNTRY))
-      data[i].MOSTRAR = true;
+void mostrarPaises(HashMap<String,String> paises){
+  
+  
+  for (String valor : paises.keySet()){
+    for(int i=0; i<data.length; i++){
+      if ((data[i].COUNTRY).equals(valor))
+        data[i].MOSTRAR = true;
+    }
+  }
+}
+
+void ocultarPaises(){
+  for(int i=0; i<data.length; i++){
+     data[i].MOSTRAR = false;
   }
 }
 
