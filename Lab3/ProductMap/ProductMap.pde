@@ -47,6 +47,9 @@ h0,h1,h2,h3;
 Globe w;
 Table t;
 DataHolder[] data;
+
+String nombrePaisSel;
+Boolean paisSel = false;
 ////////////////////////////////////////////////////////////////////////////////////////
 
 //@@@ NEW CODE
@@ -65,7 +68,8 @@ Estructura e;
 
 void setup(){
    //Buffers
-  size(1100,690,P3D); 
+  //size(1100,690,P3D);
+ size(displayWidth, displayHeight,P3D); 
   bg= createGraphics(width,height, JAVA2D);    //Buffer for storing the background
   hover=  createGraphics(width,height,P3D); //Color picking buffer
    //Fonts
@@ -202,8 +206,15 @@ void draw(){
   lights();
   w.update();
   render(X,Y); 
-  detectHover();
   
+  
+  if (paisSel){
+      fill(TEXT_COL);
+      textFont(h1);
+      text(nombrePaisSel,75,height-175);  
+    }
+  
+  detectHover();
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -303,7 +314,6 @@ void detectHover(){
       fill(TEXT_COL);
       textFont(h1);
       text(data[i].COUNTRY,75,height-175);
-      
       noFill();
     }else{
       data[i].setHoveredTo(false);
@@ -325,6 +335,29 @@ void mostrarPaises(HashMap<String,String> paises){
 void ocultarPaises(){
   for(int i=0; i<data.length; i++){
      data[i].MOSTRAR = false;
+  }
+}
+
+void mouseClicked() {
+  int c=hover.get(mouseX,mouseY);
+  int index= c/0x010101 + 254; 
+  for(int i=0;i<data.length;i++){
+    if (i==index) {
+      data[i].setHoveredTo(true);
+      fill(TEXT_COL);
+      textFont(h1);
+      //text(data[i].COUNTRY,20,20);
+      
+      nombrePaisSel = data[i].COUNTRY;
+      paisSel = true;
+      data[i].hovered = true;
+      
+      noFill();
+      break;
+    }else{
+      data[i].setHoveredTo(false);
+      paisSel = false;
+    }
   }
 }
 

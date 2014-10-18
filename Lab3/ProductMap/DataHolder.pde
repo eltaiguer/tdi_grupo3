@@ -31,9 +31,9 @@ class DataHolder {
     CONTVECTOR1 = puntoMedio(LATITUDE, LONGITUDE, CONTVECTOR.x, CONTVECTOR.y);
     CONTVECTOR2 = puntoMedio(CONTVECTOR.x, CONTVECTOR.y, parseCoord("34 50 S"),parseCoord("56 8 W"));
     
-    CONT = polarToCartesian(CONTVECTOR.x, CONTVECTOR.y, 100);
-    CONT1 = polarToCartesian(CONTVECTOR1.x, CONTVECTOR1.y, 100);
-    CONT2 = polarToCartesian(CONTVECTOR2.x, CONTVECTOR2.y, 100);
+    CONT = polarToCartesian(CONTVECTOR.x, CONTVECTOR.y, 80);
+    CONT1 = polarToCartesian(CONTVECTOR1.x, CONTVECTOR1.y, 80);
+    CONT2 = polarToCartesian(CONTVECTOR2.x, CONTVECTOR2.y, 80);
   }
 
   PVector puntoMedio (float LAT1, float LONG1, float LAT2, float LONG2){
