@@ -39,13 +39,15 @@ ControlP5 cp5;
 ControlP5 cp5_cap;
 
 CheckBox checkbox;
-CheckBox check_cap;
+//CheckBox check_cap;
 
 int myColorBackground;
 
 HashMap<Integer,String> nombres;
 HashMap<Integer,PImage> img_capitulos;
 HashMap<Integer,PImage> img_capitulos_checked;
+HashMap<Integer,PImage> img_tab_capitulos;
+HashMap<Integer,PImage> img_tab_capitulos_checked;
 Estructura e; 
 
 
@@ -96,7 +98,7 @@ void setup(){
                 .setColorForeground(color(0))
                 .setColorActive(color(255))
                 .setColorLabel(color(0))
-                .setSize(15, 15)
+                .setSize(41, 15)
                 .setItemsPerRow(1)
                 .setSpacingRow(6);
                
@@ -105,53 +107,73 @@ void setup(){
    img_capitulos = new HashMap<Integer,PImage>();
    img_capitulos_checked = new HashMap<Integer,PImage>();
    
+   img_tab_capitulos = new HashMap<Integer,PImage>();
+   img_tab_capitulos_checked = new HashMap<Integer,PImage>();
+   
    dataCapituloClasePais= new DataHolderCapituloClasePais[t2.getNumRows()-1];
    ArrayList<String> mostrados = new ArrayList<String>();
    nombres  = new HashMap<Integer,String>();
    for(int i=0;i<dataCapituloClasePais.length;i++){
       dataCapituloClasePais[i]= new DataHolderCapituloClasePais(i);  
-      //println(  dataCapituloClasePais[i].CAPITULO);
-      if (!mostrados.contains(dataCapituloClasePais[i].CAPITULO)) {
-          checkbox.addItem(dataCapituloClasePais[i].CAPITULO, i);          
-          nombres.put(i,dataCapituloClasePais[i].CAPITULO);                    
-          mostrados.add(dataCapituloClasePais[i].CAPITULO);
-      }//if    
-          String Cap          = dataCapituloClasePais[i].CAPITULO;
-          String Clase_nombre =  dataCapituloClasePais[i].CLASE;
-          String Pais_nombre  = dataCapituloClasePais[i].PAIS;
-    
-          String img_name = Cap;
-          img_name = img_name.replace(" ", "-");
-          img_capitulos.put(i, loadImage("data/checkboxes/"+img_name+"-OFF.png"));
-          img_capitulos_checked.put(i, loadImage("data/checkboxes/"+img_name+"-ON.png"));
-          
+         
+      String Cap          = dataCapituloClasePais[i].CAPITULO;
+      String Clase_nombre =  dataCapituloClasePais[i].CLASE;
+      String Pais_nombre  = dataCapituloClasePais[i].PAIS;
+
+      //@@@@@@@@ NEW CODE  
+      int Cantidad_Productos = dataCapituloClasePais[i].CANTIDAD_PRODUCTOS;
+      Capitulo c = e.find(Cap);
       
-          //@@@@@@@@ NEW CODE  
-          int Cantidad_Productos = dataCapituloClasePais[i].CANTIDAD_PRODUCTOS;
-          Capitulo c = e.find(Cap);
-          
-          if (c == null) {
-            c = new Capitulo(Cap);
-            e.addCapitulo(c);
-          }
-          
-          Pais p = c.find(Pais_nombre);          
-          if (null == p) {
-              p = new Pais(Pais_nombre);
-              c.addPais(p);
-          }
-           
-          Clase cla = p.find(Clase_nombre);          
-          if (null == cla){
-            cla = new Clase(Clase_nombre);
-            cla.setCantidadProductos(Cantidad_Productos);
-            p.addClase(cla);
-          }
-          
-          //@@@@@@@NEW CODE
+      if (c == null) {
+        c = new Capitulo(Cap);
+        e.addCapitulo(c);
+      }
+      
+      Pais p = c.find(Pais_nombre);          
+      if (null == p) {
+          p = new Pais(Pais_nombre);
+          c.addPais(p);
+      }
+       
+      Clase cla = p.find(Clase_nombre);          
+      if (null == cla){
+        cla = new Clase(Clase_nombre);
+        cla.setCantidadProductos(Cantidad_Productos);
+        p.addClase(cla);
+      }
+      
+      //@@@@@@@NEW CODE
  
       
    }//for
+   
+   for(int i=0; i < e.CAPITULOS.size(); i++){
+      Capitulo ca = e.CAPITULOS.get(i);
+      String img_name = ca.NOMBRE_CAPITULO.replace(" ", "-");
+    
+      img_capitulos.put(i, loadImage("data/checkboxes/"+img_name+"-OFF.png"));
+      img_capitulos_checked.put(i, loadImage("data/checkboxes/"+img_name+"-ON.png"));
+      
+      img_tab_capitulos.put(i, loadImage("data/tabs/"+img_name+"-OFF.png"));
+      img_tab_capitulos_checked.put(i, loadImage("data/tabs/"+img_name+"-ON.png"));
+ 
+      //if (!mostrados.contains(dataCapituloClasePais[i].CAPITULO)) {
+      checkbox.addItem(ca.NOMBRE_CAPITULO, i);          
+      nombres.put(i,dataCapituloClasePais[i].CAPITULO);                    
+      //mostrados.add(dataCapituloClasePais[i].CAPITULO);
+      //}//if
+ 
+ 
+      
+    } 
+    
+    
+   
+  
+  for(Toggle t:checkbox.getItems()) {
+      // replace the default view for each checkbox toggle with our custom view 
+      t.setView(new CheckBoxItemView());
+  }
   
     //println("cantidad de capitulos en total: ");
     //println(e.CAPITULOS.size());
@@ -200,12 +222,13 @@ void createBackground (PGraphics pg, int X, int Y,float f){
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void draw(){
+  
   background(bg);
   hover.beginDraw(); hover.background(0); hover.endDraw();
   lights();
-  w.update();
-  render(X,Y); 
   
+  w.update();
+  render(X,Y);
   
   if (paisSel){
       fill(TEXT_COL);
@@ -214,8 +237,8 @@ void draw(){
       mostrarInfo();
       dibujarDetalles(nombrePaisSel);
     }
-  
-  detectHover();
+   detectHover();
+
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -358,8 +381,8 @@ void mouseClicked() {
         
         break;
       }else{
-       // data[i].setHoveredTo(false);
-        //paisSel = false;
+        data[i].setHoveredTo(false);
+        paisSel = false;
       }
     }
   //}
@@ -415,17 +438,20 @@ void mostrarInfo(){
 void dibujarDetalles(String pais){
   int alto = 150;
   int ancho = width;
-  
+  //rect(0,height-alto,ancho,56);
   HashMap<Float,String> agregados = new HashMap<Float,String>();
   cp5_cap = new ControlP5(this);
-  check_cap = cp5_cap.addCheckBox("checkBox_cap")
+ 
+  /*CheckBox check_cap = cp5_cap.addCheckBox("checkBox_cap")
                           .setPosition(0,height-alto)
                           .setColorForeground(color(0))
                           .setColorActive(color(255))
                           .setColorLabel(color(0))
-                          .setSize(41,20)
+                          .setSize(56,45)
                           .setItemsPerRow(20)
                           .setSpacingRow(6);
+  */
+  
   
   for(int i=0; i < e.CAPITULOS.size(); i++){
         Capitulo ca = e.CAPITULOS.get(i);
@@ -435,7 +461,7 @@ void dibujarDetalles(String pais){
                 
                 if (checkbox.getItem(k).getState()) {
                   String nom_cap = checkbox.getItem(k).getName();
-                  println("capitulo"+nom_cap);
+                //  println("capitulo"+nom_cap);
                   
                   agregados.put(checkbox.getItem(k).internalValue(),nom_cap);
                             
@@ -447,19 +473,27 @@ void dibujarDetalles(String pais){
         }
     } 
    
+  /* 
    for (Float valor : agregados.keySet()){
      check_cap.addItem(valor.toString(), valor);
    }
    
+   println("cant checkbox: "+check_cap.getInfo());
 
   
    for(Toggle t:check_cap.getItems()) {
       // replace the default view for each checkbox toggle with our custom view 
-      t.setView(new CheckBoxItemView());
+      t.setView(new TabItemView());
     }
   
+*/
 
-
+cp5_cap.window().setPositionOfTabs(0,height-alto);
+cp5_cap.addTab("extra")
+     .setColorBackground(color(0, 160, 100))
+     .setColorLabel(color(255))
+     .setColorActive(color(255,128,0))
+     ;
   
 }
 
