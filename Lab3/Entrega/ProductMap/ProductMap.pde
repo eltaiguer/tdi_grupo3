@@ -144,6 +144,7 @@ void setup(){
      cp5_cap_slider.getController("otros").getCaptionLabel().alignX(ControlP5.LEFT_OUTSIDE).setPaddingX(10);
     cp5_cap_slider.setFont(fontLabel);
     
+    
    checkbox = cp5.addCheckBox("checkBox")
                 .setPosition(20, 20)
                 .setColorForeground(color(0))
@@ -285,6 +286,9 @@ void draw(){
     textFont(h1);
       text(nombrePaisSel,75,height-190);
       dibujado_slides=false;
+      noStroke();
+      fill(113,137,156,60);
+      rect(0,height-135,width,190);
   }
   if (paisSel && !dibujado){
       //fill(TEXT_COL);
@@ -292,11 +296,13 @@ void draw(){
 
       dibujarDetalles(nombrePaisSel);
       dibujado = true;
+      
     }
     
     if (paisSel && capituloSel && !dibujado_slides){
       dibujarSliders();
       dibujado_slides = true;
+      
     }
    detectHover();
 
@@ -538,7 +544,8 @@ void mouseClicked() {
 void dibujarDetalles(String pais){
   
   int ancho = width;
-  //rect(0,height-alto,ancho,56);
+  //rect(0,height-180,ancho,56);
+  rect(30, 20, 55, 55);
   HashMap<Float,String> agregados = new HashMap<Float,String>();
   
  
@@ -571,14 +578,18 @@ void dibujarDetalles(String pais){
     }
   } 
    
-  
+  Boolean click = false;
    for (Float valor : agregados.keySet()){
      check_cap.addItem(agregados.get(valor), valor);
+     if (!click){
+     check_cap.activate(agregados.get(valor));
+     click=true;
+     }
    }
    
    println("cant checkbox: "+check_cap.getInfo());
 
-  
+   
    for(Toggle t:check_cap.getItems()) {
       // replace the default view for each checkbox toggle with our custom view 
       t.setView(new TabItemView());
