@@ -48,6 +48,7 @@ ControlWindow controlWindow;
 
 CheckBox checkbox;
 RadioButton check_cap;
+Slider cap_slider;
 
 int myColorBackground;
 
@@ -79,7 +80,7 @@ void setup(){
   alto_detalles = height - 100;
   createBackground (bg,X,Y,.1);
   frameRate(60);
-  cursor(CROSS);
+  cursor(ARROW);
   textMode(SCREEN);
    //Objects
   //w= new Globe(250,24,"WorldVisAllCoords/data/w.png");
@@ -116,7 +117,7 @@ void setup(){
          incrementoX += 480; //me cambio de columna
        }
        
-       cp5_cap_slider.addSlider("slider"+m)
+     cap_slider= cp5_cap_slider.addSlider("slider"+m)
          .setPosition(incrementoX,incrementoY)
          .setRange(0,100)
          .setValue(0)
@@ -279,11 +280,15 @@ void draw(){
   
   w.update();
   render(X,Y);
-  
+  if (paisSel){
+    fill(TEXT_COL);
+    textFont(h1);
+      text(nombrePaisSel,75,height-190);
+      dibujado_slides=false;
+  }
   if (paisSel && !dibujado){
-      fill(TEXT_COL);
-      textFont(h1);
-      text(nombrePaisSel,75,height-175);  
+      //fill(TEXT_COL);
+        
 
       dibujarDetalles(nombrePaisSel);
       dibujado = true;
