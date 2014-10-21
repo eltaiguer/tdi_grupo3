@@ -6,6 +6,9 @@
         p.image(img_capitulos.get((int)t.internalValue()),0,0);
       }
       fill(255);
-      t.getCaptionLabel().draw(p, 0, 0, t);
+      //t.getCaptionLabel().draw(p, 0, 0, t);
+      
+      textFont(fontCheck);
+      text(t.getCaptionLabel().getText(), 50,15);
     }
   }

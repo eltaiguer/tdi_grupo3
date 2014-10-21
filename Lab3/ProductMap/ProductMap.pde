@@ -21,7 +21,7 @@ PGraphics
 bg, 
 hover;
 PFont 
-h0,h1,h2,h3;
+h0,h1,h2,h3,fontCheck;
 //
 Globe w;
 Table t;
@@ -29,6 +29,11 @@ DataHolder[] data;
 
 String nombrePaisSel;
 Boolean paisSel = false;
+Boolean dibujado = false;
+Boolean capituloSel = false;
+Boolean dibujado_slides = false;
+
+int alto_detalles;
 ////////////////////////////////////////////////////////////////////////////////////////
 
 //@@@ NEW CODE
@@ -37,9 +42,13 @@ Table t2;
 DataHolderCapituloClasePais[] dataCapituloClasePais;
 ControlP5 cp5;
 ControlP5 cp5_cap;
+ControlP5 cp5_cap_slider;
+ControlWindow controlWindow;
+
 
 CheckBox checkbox;
-//CheckBox check_cap;
+RadioButton check_cap;
+Slider cap_slider;
 
 int myColorBackground;
 
@@ -63,14 +72,15 @@ void setup(){
   //h2= loadFont("WorldVisAllCoords/data/Lato-Light-24.vlw");
   h2= loadFont("Lato-Light-24.vlw");
   h3= createFont("Arial",18,false);
+  fontCheck = createFont("Calibri", 14);
    //General settings
   X= width/2+100;
   Y= height/2-100;
   
-  
+  alto_detalles = height - 100;
   createBackground (bg,X,Y,.1);
   frameRate(60);
-  cursor(CROSS);
+  cursor(ARROW);
   textMode(SCREEN);
    //Objects
   //w= new Globe(250,24,"WorldVisAllCoords/data/w.png");
@@ -88,9 +98,51 @@ void setup(){
   
   //Obtengo las categorias
    PFont fontLabel = createFont("Arial",11,false);
-   t2= new Table("capitulo-pais-clase-productos.csv"); 
+   t2= new Table("capitulo-pais-clase-productos2.csv"); 
    e = new Estructura();   
+
+  
     cp5 = new ControlP5(this);
+    cp5_cap = new ControlP5(this);
+    cp5_cap_slider = new ControlP5(this);
+    
+    int incrementoX = 250;
+    int incrementoY = alto_detalles-10;
+    for (int m=0; m<8; m++){
+      
+      
+       if (m > 0 && (m % 3 ) == 0) {
+         //YA IMPRIMI TRES COLUMNAS
+         incrementoY = alto_detalles-10;    //vuelvo a la fila 0
+         incrementoX += 380; //me cambio de columna
+       }
+       
+     cap_slider= cp5_cap_slider.addSlider("slider"+m)
+         .setPosition(incrementoX,incrementoY)
+         .setRange(0,100)
+         .setValue(0)
+         .setHeight(20)
+         .setVisible(false)
+         .setColorLabel(255)
+         .lock()
+       ;
+                  
+      incrementoY += 40;   
+      
+      cp5_cap_slider.getController("slider"+m).getCaptionLabel().alignX(ControlP5.LEFT_OUTSIDE).setPaddingX(10);
+    }
+    cp5_cap_slider.addSlider("otros")
+         .setPosition(incrementoX,incrementoY)
+         .setRange(0,100)
+         .setHeight(20)
+         .setValue(0)
+         .setColorLabel(255)
+         .setVisible(false)
+         .lock()
+       ;
+      
+     cp5_cap_slider.getController("otros").getCaptionLabel().alignX(ControlP5.LEFT_OUTSIDE).setPaddingX(10);
+    cp5_cap_slider.setFont(fontLabel);
     
     
    checkbox = cp5.addCheckBox("checkBox")
@@ -162,17 +214,17 @@ void setup(){
       nombres.put(i,dataCapituloClasePais[i].CAPITULO);                    
       //mostrados.add(dataCapituloClasePais[i].CAPITULO);
       //}//if
- 
- 
-      
-    } 
-    
-    
+     
+    }
+   
+  // inicializarTabs(); 
+   
    
   
   for(Toggle t:checkbox.getItems()) {
       // replace the default view for each checkbox toggle with our custom view 
       t.setView(new CheckBoxItemView());
+      
   }
   
     //println("cantidad de capitulos en total: ");
@@ -182,7 +234,6 @@ void setup(){
         Capitulo ca = e.CAPITULOS.get(k);
         //println(" clases del capitulo " + ca.CLASES.size()); 
     } 
-          
 
 }
 
@@ -222,20 +273,36 @@ void createBackground (PGraphics pg, int X, int Y,float f){
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void draw(){
-  
+
+   
   background(bg);
   hover.beginDraw(); hover.background(0); hover.endDraw();
   lights();
   
   w.update();
   render(X,Y);
-  
   if (paisSel){
-      fill(TEXT_COL);
-      textFont(h1);
-      text(nombrePaisSel,75,height-175);  
-      mostrarInfo();
+    fill(TEXT_COL);
+    textFont(h1);
+      text(nombrePaisSel,75,height-190);
+      dibujado_slides=false;
+      noStroke();
+      fill(113,137,156, 100);
+      rect(0,height-135,width,190);
+  }
+  if (paisSel && !dibujado){
+      //fill(TEXT_COL);
+        
+
       dibujarDetalles(nombrePaisSel);
+      dibujado = true;
+      
+    }
+    
+    if (paisSel && capituloSel && !dibujado_slides){
+      dibujarSliders();
+      dibujado_slides = true;
+      
     }
    detectHover();
 
@@ -245,14 +312,11 @@ void controlEvent(ControlEvent theEvent) {
   if (theEvent.isFrom(checkbox)) {
     myColorBackground = 0;
     
-    ////println("##############");
-      ////println("chequeados: ");
-    
     ocultarPaises();
     int col = 0;
     for (int i=0;i<checkbox.getArrayValue().length;i++) {
       int n = (int)checkbox.getArrayValue()[i];
-     // print(n);
+     
       if(n==1) {
         myColorBackground += checkbox.getItem(i).internalValue();
       }
@@ -260,23 +324,17 @@ void controlEvent(ControlEvent theEvent) {
       
       if (checkbox.getItem(i).getState()) {
         String nom_cap =   checkbox.getItem(i).getName();
-        //println(checkbox.getItem(i).getName());
         
-        
-        //println("nombre capitulo a buscar: #" + nom_cap + "#");
-        //println("clases : ");
         Capitulo cap = e.find(nom_cap);
-        //println("1");
+        
         if (cap != null) {
-          //println("2");
-          //println("cantidad de clases del capitulo: " + cap.CLASES.size());
+          
           HashMap<String,String> paises_mostrar = new HashMap<String,String>();
           
           for (int p = 0; p < cap.PAISES.size(); p++) {
             String nom_pais = cap.PAISES.get(p).NOMBRE_PAIS;  
             paises_mostrar.put(nom_pais, nom_pais);
-
-            
+ 
           }
           
           mostrarPaises(paises_mostrar);
@@ -285,7 +343,94 @@ void controlEvent(ControlEvent theEvent) {
       }
     }
    // //println();    
+  } else if (theEvent.isFrom(check_cap)){
+    
+    dibujado_slides = false;
+    capituloSel = true;      
   }
+  
+}
+
+void dibujarSliders(){
+  int cantidad_prod_clase = 0;
+    int max_graficas = 8;
+    int otros = 0;
+    
+    ArrayList<String> nombres_clases_sliders = new ArrayList<String>();
+    ArrayList<Integer> valores_clases_sliders = new ArrayList<Integer>();
+    
+    for(int m = 0; m<10; m++){
+      if (m<max_graficas){
+         cp5_cap_slider.getController("slider"+m).setVisible(false);
+       } else {
+         cp5_cap_slider.getController("otros").setVisible(false);
+       }
+    }
+    
+    for (int i=0;i<check_cap.getArrayValue().length;i++) {
+      if (check_cap.getItem(i).getState()) {
+        String nom_cap = check_cap.getItem(i).getName();
+        
+        for (int j=0; j<e.CAPITULOS.size(); j++){
+          Capitulo ca = e.CAPITULOS.get(j);
+          
+          if(nom_cap.equals(ca.NOMBRE_CAPITULO)){
+            
+            for (int k=0; k<ca.PAISES.size(); k++){
+              Pais p = e.CAPITULOS.get(j).PAISES.get(k);
+              if (nombrePaisSel.equals(p.NOMBRE_PAIS)){
+                
+                
+                for (int l=0; l<p.CLASES.size(); l++){
+                  Clase cla = p.CLASES.get(l);
+                  
+                  cantidad_prod_clase += cla.CANTIDAD_PRODUCTOS;
+                   
+                   if (l < max_graficas){
+                      nombres_clases_sliders.add(cla.NOMBRE_CLASE);
+                      valores_clases_sliders.add(cla.CANTIDAD_PRODUCTOS);
+                       println("clase: " + cla.NOMBRE_CLASE + " - " + cla.CANTIDAD_PRODUCTOS);
+                   } else {
+                       otros += cla.CANTIDAD_PRODUCTOS;
+                   }
+                  
+                }
+                println("Cantidad total: " + cantidad_prod_clase);
+                
+                if (p.CLASES.size() > max_graficas){
+                  nombres_clases_sliders.add("otros");
+                  valores_clases_sliders.add(otros);
+                }
+                
+               
+                for (int m=0; m<nombres_clases_sliders.size(); m++){
+                  String nombre_clase = nombres_clases_sliders.get(m);
+                   int valor_clase = valores_clases_sliders.get(m);
+                   println(nombre_clase + " : " + valor_clase); 
+                   
+                   if (m<max_graficas){
+                     cp5_cap_slider.getController("slider"+m).setValue(Math.round((valor_clase * 100/cantidad_prod_clase)));
+                     cp5_cap_slider.getController("slider"+m).setCaptionLabel(nombre_clase);
+                     cp5_cap_slider.getController("slider"+m).setVisible(true);
+                   } else {
+                     cp5_cap_slider.getController("otros").setValue(Math.round((valor_clase * 100/cantidad_prod_clase)));
+                     cp5_cap_slider.getController("otros").setCaptionLabel(nombre_clase);
+                     cp5_cap_slider.getController("otros").setVisible(true);
+                   }
+                   
+                }
+                
+                break;
+              }
+              
+            }
+            break;
+          }
+        }
+     
+        break;  
+      }
+    }
 }
 
 void checkBox(float[] a) {
@@ -375,74 +520,111 @@ void mouseClicked() {
         
         nombrePaisSel = data[i].COUNTRY;
         paisSel = true;
-        data[i].hovered = true;
+        dibujado = false;
+        
+        if (check_cap != null)
+          check_cap.remove();
+          
+        
+        
+          
         noFill();
         
         
         break;
       }else{
-        data[i].setHoveredTo(false);
-        paisSel = false;
+       //data[i].setHoveredTo(false);
+        //paisSel = false;
       }
     }
   //}
 }
 
-void mostrarInfo(){
-  
-  int alto = 150;
-  int ancho = width;
-  
-  /*
-  Group g2 = cp5.addGroup("g2")
-                .setPosition(0,height-alto)
-                .setWidth(ancho)
-                .setHeight(20)
-                .activateEvent(true)
-                .setBackgroundColor(color(255,80))
-                .setBackgroundHeight(alto)
-                .setLabel("Hello World.")
-                ;
-                
-   cp5.addSlider("S-1")
-     .setPosition(80,10)
-     .setSize(180,9)
-     .setGroup(g2)
-     ;
-     
-  cp5.addSlider("S-2")
-     .setPosition(80,20)
-     .setSize(180,9)
-     .setGroup(g2)
-     ;
-     
-  cp5.addRadioButton("radio")
-     .setPosition(10,10)
-     .setSize(20,9)
-     .addItem("black",0)
-     .addItem("red",1)
-     .addItem("green",2)
-     .addItem("blue",3)
-     .addItem("grey",4)
-     .addItem("2black",5)
-     .addItem("2red",6)
-     .addItem("2green",7)
-     .addItem("2blue",8)
-     .addItem("2grey",9)
-     .setGroup(g2)
-     ;
-     */                
- // rect(0,height-alto,ancho,alto);
-}
 
 void dibujarDetalles(String pais){
+  
+  int ancho = width;
+  //rect(0,height-180,ancho,56);
+  rect(30, 20, 55, 55);
+  HashMap<Float,String> agregados = new HashMap<Float,String>();
+  
+ 
+  check_cap = cp5_cap.addRadioButton("checkBox_cap")
+                          .setPosition(0,alto_detalles-80)
+                          .setColorForeground(color(0))
+                          .setColorActive(color(255))
+                          .setColorLabel(color(0))
+                          .setSize(56,45)
+                          .setItemsPerRow(20)
+                          .setSpacingRow(6);
+  
+  
+  for (int k=0;k<checkbox.getArrayValue().length;k++) {           
+    if (checkbox.getItem(k).getState()) {
+      String nom_cap = checkbox.getItem(k).getName();
+  
+      for(int i=0; i < e.CAPITULOS.size(); i++){
+          Capitulo ca = e.CAPITULOS.get(i);
+          if (nom_cap.equals(ca.NOMBRE_CAPITULO)){
+            
+              for (int j=0; j < ca.PAISES.size(); j++){
+                if (pais.equals(ca.PAISES.get(j).NOMBRE_PAIS)){
+                  agregados.put(checkbox.getItem(k).internalValue(),nom_cap);
+                  break;
+                }
+             }
+          }
+        }
+    }
+  } 
+   
+  Boolean click = false;
+   for (Float valor : agregados.keySet()){
+     check_cap.addItem(agregados.get(valor), valor);
+     if (!click){
+     check_cap.activate(agregados.get(valor));
+     click=true;
+     }
+   }
+   
+   println("cant checkbox: "+check_cap.getInfo());
+
+   
+   for(Toggle t:check_cap.getItems()) {
+      // replace the default view for each checkbox toggle with our custom view 
+      t.setView(new TabItemView());
+    }
+  
+
+/*
+  cp5_cap.window().setPositionOfTabs(0,height-alto);
+  Tab tab_cap = cp5_cap.addTab("extasadsdasdasdra")
+       .setColorBackground(color(0, 160, 100))
+       .setColorLabel(color(255))
+       .setColorActive(color(255,128,0))
+       .setWidth(400)
+       ;
+    
+    Toggle t = (Toggle)tab_cap;
+    t.setView(new TabItemView());
+ /*
+  for(Toggle t:tab_cap.getItems()) {
+      // replace the default view for each checkbox toggle with our custom view 
+      t.setView(new TabItemView());
+    }
+    */
+
+    
+
+}
+
+
+/* PARA EL SETUP
+void inicializarTabs(){
   int alto = 150;
   int ancho = width;
-  //rect(0,height-alto,ancho,56);
-  HashMap<Float,String> agregados = new HashMap<Float,String>();
-  cp5_cap = new ControlP5(this);
- 
-  /*CheckBox check_cap = cp5_cap.addCheckBox("checkBox_cap")
+    
+  CheckBox check_cap = cp5_cap.addCheckBox("checkBox_cap")
                           .setPosition(0,height-alto)
                           .setColorForeground(color(0))
                           .setColorActive(color(255))
@@ -450,56 +632,22 @@ void dibujarDetalles(String pais){
                           .setSize(56,45)
                           .setItemsPerRow(20)
                           .setSpacingRow(6);
-  */
-  
-  
+                          
   for(int i=0; i < e.CAPITULOS.size(); i++){
-        Capitulo ca = e.CAPITULOS.get(i);
-        for (int j=0; j < ca.PAISES.size(); j++){
-          if (pais.equals(ca.PAISES.get(j).NOMBRE_PAIS)){
-             for (int k=0;k<checkbox.getArrayValue().length;k++) {
-                
-                if (checkbox.getItem(k).getState()) {
-                  String nom_cap = checkbox.getItem(k).getName();
-                //  println("capitulo"+nom_cap);
-                  
-                  agregados.put(checkbox.getItem(k).internalValue(),nom_cap);
-                            
-                  
-                }
-             }
-              
-          }
-        }
-    } 
-   
-  /* 
-   for (Float valor : agregados.keySet()){
-     check_cap.addItem(valor.toString(), valor);
-   }
-   
-   println("cant checkbox: "+check_cap.getInfo());
-
+     check_cap.addItem(e.CAPITULOS.get(i).NOMBRE_CAPITULO, i);
+  }
   
-   for(Toggle t:check_cap.getItems()) {
+  for(Toggle t:check_cap.getItems()) {
       // replace the default view for each checkbox toggle with our custom view 
       t.setView(new TabItemView());
     }
-  
-*/
-
-cp5_cap.window().setPositionOfTabs(0,height-alto);
-cp5_cap.addTab("extra")
-     .setColorBackground(color(0, 160, 100))
-     .setColorLabel(color(255))
-     .setColorActive(color(255,128,0))
-     ;
+    
+  check_cap.getItem(2).setVisible(false);
   
 }
 
 
-
-
+*/
 
 
 
