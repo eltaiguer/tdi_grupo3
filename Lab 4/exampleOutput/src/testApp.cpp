@@ -27,7 +27,7 @@ void testApp::setup() {
 	midiOut.openPort("livePORT"); // by name
 	//midiOut.openVirtualPort("ofxMidiOut"); // open a virtual port
 	
-	channel = 1;
+	channel = 2;
 	currentPgm = 0;
 	note = 0;
 	velocity = 0;
@@ -35,10 +35,49 @@ void testApp::setup() {
 	bend = 0;
 	touch = 0;
 	polytouch = 0;
+
+	cout << "listening for osc messages on port " << PORT << "\n";
+	receiver.setup(PORT);
 }
 
 //--------------------------------------------------------------
-void testApp::update() {}
+void testApp::update() {
+
+		// hide old messages
+	for(int i = 0; i < NUM_MSG_STRINGS; i++){
+		if(timers[i] < ofGetElapsedTimef()){
+			msg_strings[i] = "";
+		}
+	}
+
+	// check for waiting messages
+	while(receiver.hasWaitingMessages()){
+		// get the next message
+		
+		
+		// get the next message
+		ofxOscMessage m;
+		receiver.getNextMessage(&m);
+
+		if (m.getAddress()=="/test/Brian/wiimote"){
+		
+			note = ofMap('W', 48, 122, 0, 127);
+			//printf("nota: "+note);
+			velocity = 64;
+			midiOut.sendNoteOn(2, note,  velocity);
+		}
+
+		if (m.getAddress()=="/test/Brian/nunchuk"){
+		
+			note = ofMap('W', 48, 122, 0, 127);
+			//printf("nota: "+note);
+			velocity = 64;
+			midiOut.sendNoteOn(3, note,  velocity);
+		}
+	}
+
+
+}
 
 //--------------------------------------------------------------
 void testApp::draw() {
@@ -58,6 +97,7 @@ void testApp::draw() {
 		 << "touch: " << touch << endl
 		 << "polytouch: " << polytouch;
 	ofDrawBitmapString(text.str(), 20, 20);
+
 }
 
 //--------------------------------------------------------------
@@ -76,6 +116,7 @@ void testApp::keyPressed(int key) {
 		// scale the ascii values to midi velocity range 0-127
 		// see an ascii table: http://www.asciitable.com/
 		note = ofMap(key, 48, 122, 0, 127);
+		
 		velocity = 64;
 		midiOut.sendNoteOn(channel, note,  velocity);
 	}

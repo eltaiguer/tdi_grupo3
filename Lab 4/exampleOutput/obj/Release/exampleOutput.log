@@ -1,5 +1,9 @@
-﻿Build started 29/10/2014 18:17:58.
+﻿Build started 02/11/2014 14:37:00.
+     1>Project "C:\Users\Gaston\Facultad\TDI\Obligatorio 4\of_v0.8.4_vs_release\apps\myApps\exampleOutput\exampleOutput.vcxproj" on node 2 (Clean target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'C:\USERS\GASTON\FACULTAD\TDI\OBLIGATORIO 4\OF_V0.8.4_VS_RELEASE\APPS\MYAPPS\EXAMPLEOUTPUT\BIN\EXAMPLEOUTPUT.EXE' is denied.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'C:\Users\Gaston\Facultad\TDI\Obligatorio 4\of_v0.8.4_vs_release\apps\myApps\exampleOutput\bin\exampleOutput.exe' is denied.
+     1>Done Building Project "C:\Users\Gaston\Facultad\TDI\Obligatorio 4\of_v0.8.4_vs_release\apps\myApps\exampleOutput\exampleOutput.vcxproj" (Clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:00.21
