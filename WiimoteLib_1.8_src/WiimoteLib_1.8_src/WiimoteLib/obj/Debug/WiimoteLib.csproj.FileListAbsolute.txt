@@ -1,0 +1,6 @@
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\bin\Debug\WiimoteLib.XML
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\bin\Debug\WiimoteLib.dll
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\bin\Debug\WiimoteLib.pdb
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\obj\Debug\WiimoteLib.dll
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\obj\Debug\WiimoteLib.pdb
+C:\Users\Taiguer\Desktop\WiimoteLib_1.8_src\WiimoteLib_1.8_src\WiimoteLib\obj\Debug\WiimoteLib.csprojResolveAssemblyReference.cache
