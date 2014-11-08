@@ -60,6 +60,6 @@ public:
 
 	Estructura* e;
 
-	ofImage tambor,piano,guitarra,flauta;
+	ofImage tambor,tambor_selected,piano,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected;
 	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
 };

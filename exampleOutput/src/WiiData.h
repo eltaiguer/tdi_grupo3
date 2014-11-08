@@ -9,6 +9,9 @@ public:
 	Nunchuck* nunchuck;
 	int instrumento;
 
+	//variables para cada instrumento
+	bool sel_right; // para cambiar instrumentos
+
 	WiiData();
 	~WiiData();
 

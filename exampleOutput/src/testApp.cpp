@@ -50,15 +50,15 @@ void testApp::setup() {
 	e = new Estructura();
 
 	guitarra.loadImage("guitarra.png");
+	guitarra_selected.loadImage("guitarra_selected.png");
 	piano.loadImage("piano.png");
+	piano_selected.loadImage("piano_selected.png");
 	flauta.loadImage("flauta.png");
+	flauta_selected.loadImage("flauta_selected.png");
 	tambor.loadImage("tambor.png");
+	tambor_selected.loadImage("tambor_selected.png"); 
 
-	muestroPiano    = false;
-	muestroGuitarra = false;
-	muestroTambor   = false;
-	muestroFlauta   = false;
-
+	 
 }
 
 //--------------------------------------------------------------
@@ -82,7 +82,7 @@ void testApp::update() {
 
 		// Recorro las direcciones para saber de donde es el mensaje
 		bool dirEncontrada = false;
-		int indice_remote = 1;
+		int indice_remote = 0;
 		string str_indice_remote;
 		while(!dirEncontrada){
 			
@@ -106,7 +106,7 @@ void testApp::update() {
 			}
 			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Wiimote/Buttons"){
 				e->data[indice_remote]->wiimote->Button_Up = m.getArgAsInt32(0);
-				e->data[indice_remote]->wiimote->Button_Right = m.getArgAsInt32(1);
+				e->data[indice_remote]->wiimote->Button_Right = m.getArgAsInt32(1);				
 				e->data[indice_remote]->wiimote->Button_Down = m.getArgAsInt32(2);
 				e->data[indice_remote]->wiimote->Button_Left = m.getArgAsInt32(3);
 				e->data[indice_remote]->wiimote->Button_A = m.getArgAsInt32(4);
@@ -135,6 +135,19 @@ void testApp::update() {
 			}
 
 			indice_remote++;
+		}
+	}
+
+	for (int i =1; i <= 4; i++){
+		//Actualizo el instrumento que esta seleccionado con el right
+		if (!e->data[i]->sel_right &&  e->data[i]->wiimote->Button_Right){
+			e->data[i]->instrumento = ((e->data[i]->instrumento + 1 )  %  6);
+			if (e->data[i]->instrumento == 0){
+				e->data[i]->instrumento++;
+			}
+			e->data[i]->sel_right = true;
+		} else if (!e->data[i]->wiimote->Button_Right){
+			e->data[i]->sel_right = false;
 		}
 	}
 
@@ -226,7 +239,7 @@ void testApp::update() {
 		}
 	}
 	
-	e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
+	//e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
 
 	
 	if (e->data[1]->instrumento == 1){ // Batería seleccionada
@@ -313,7 +326,9 @@ void testApp::update() {
 		}
 	}
 
-
+	//Seleccionamos los instrumentos
+	
+	
 }
 
 //--------------------------------------------------------------
@@ -366,20 +381,44 @@ void testApp::draw() {
 	ofDrawBitmapString("WiiMote II",200,20);
 	ofDrawBitmapString("WiiMote III",380,20);
 	ofDrawBitmapString("WiiMote IV",560,20);
-
-	int tope = 4;
-	for ( int i = 1; i < tope; i++) {
-		if (e->data[i]->wiimote->Button_A) {		
-			tambor.resize(50,50);
-			tambor.draw(10,50);
-		}
-
-		if (e->data[i]->wiimote->Button_One) {
-			guitarra.resize(50,50);
-			guitarra.draw(10,150);
-		}
-		//break;
+	
+	tambor.resize(50,50);
+	guitarra.resize(50,50);
+	
+	//Dibujamos los instrumentos
+	for (int k =0; k < 4; k++) {				
+		tambor.draw(10 + k*180,50);		
+		guitarra.draw(10 +k*180,150);
 	}
+	
+
+	int TAMBOR = 1;
+	int	FLAUTA = 2;
+	int	MARACAS = 3;
+	int	PIANO   = 4;
+	int GUITARRA = 5;
+
+	printf("instrumento seleccionado : %d\n",e->data[1]->instrumento);
+	for ( int i = 1; i < 5; i++) {
+		 
+		if (e->data[i]->instrumento == TAMBOR){			
+			//tambor_selected.draw(10,50);
+			ofDrawBitmapString("Selected tambor!",500,500);
+		} else if (e->data[i]->instrumento == FLAUTA){
+			
+		} else if (e->data[i]->instrumento == MARACAS){
+		
+		} else if (e->data[i]->instrumento == PIANO){
+		
+		} else if (e->data[i]->instrumento == GUITARRA){
+			ofDrawBitmapString("Selected guitarra!",100,100);
+			
+		}
+		 
+	}
+
+	
+	
 	
 }
 
