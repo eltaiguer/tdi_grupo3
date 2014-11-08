@@ -54,4 +54,7 @@ public:
 	bool sonar;
 
 	Estructura* e;
+
+	ofImage tambor,piano,guitarra,flauta;
+	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
 };

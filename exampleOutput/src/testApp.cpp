@@ -43,6 +43,15 @@ void testApp::setup() {
 
 	e = new Estructura();
 
+	guitarra.loadImage("guitarra.png");
+	piano.loadImage("piano.png");
+	flauta.loadImage("flauta.png");
+	tambor.loadImage("tambor.png");
+
+	muestroPiano    = false;
+	muestroGuitarra = false;
+	muestroTambor   = false;
+	muestroFlauta   = false;
 
 }
 
@@ -61,15 +70,14 @@ void testApp::update() {
 	// check for waiting messages
 	while(receiver.hasWaitingMessages()){
 		// get the next message
-		printf("hay mensaje\n");
-
+		
 		// get the next message
 		ofxOscMessage m;
 		receiver.getNextMessage(&m);
 
 		// Recorro las direcciones para saber de donde es el mensaje
 		bool dirEncontrada = false;
-		int indice_remote = 1;
+		int indice_remote = 0;
 		string str_indice_remote;
 		while(!dirEncontrada){
 			
@@ -124,7 +132,7 @@ void testApp::update() {
 		}
 	}
 
-
+	
 	// FIN CAPUTRA
 
 	// CODIGO VIEJO
@@ -160,6 +168,7 @@ void testApp::update() {
 			//printf("nota: "+note);
 			velocity = 64;
 			midiOutW1.sendNoteOn(2, note,  velocity);
+
 		}
 
 		if (m.getAddress()=="/test/Brian/nunchuk"){
@@ -211,7 +220,7 @@ void testApp::update() {
 		}
 	}
 	
-
+	
 	
 }
 
@@ -221,7 +230,7 @@ void testApp::draw() {
 	// let's see something
 	ofSetColor(0);
 	stringstream text;
-	text << "connected to port " << midiOutW1.getPort() 
+	/*text << "connected to port " << midiOutW1.getPort() 
 		<< " \"" << midiOutW1.getName() << "\"" << endl
 		<< "is virtual?: " << midiOutW1.isVirtual() << endl << endl
 		<< "sending to channel " << channel << endl << endl
@@ -232,7 +241,43 @@ void testApp::draw() {
 		<< "bend: " << bend << endl
 		<< "touch: " << touch << endl
 		<< "polytouch: " << polytouch;
-	ofDrawBitmapString(text.str(), 20, 20);
+	ofDrawBitmapString(text.str(), 20, 20);*/
+	
+	//Muestro imagenes
+	/*tambor.resize(200,200);
+	tambor.draw(0,0);
+
+	piano.resize(200,200);
+	piano.draw(200,0);
+
+	flauta.resize(200,200);
+	flauta.draw(600,0);
+
+	guitarra.resize(200,200);
+	guitarra.draw(800,0);*/
+
+	//
+
+	//Mostramos los titulos
+	 
+	ofDrawBitmapString("WiiMote I",20,20);
+	ofDrawBitmapString("WiiMote II",200,20);
+	ofDrawBitmapString("WiiMote III",380,20);
+	ofDrawBitmapString("WiiMote IV",560,20);
+
+	int tope = 4;
+	for ( int i = 1; i < tope; i++) {
+		if (e->data[i]->wiimote->Button_A) {		
+			tambor.resize(50,50);
+			tambor.draw(10,50);
+		}
+
+		if (e->data[i]->wiimote->Button_One) {
+			guitarra.resize(50,50);
+			guitarra.draw(10,150);
+		}
+		//break;
+	}
 	
 }
 
