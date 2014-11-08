@@ -226,7 +226,7 @@ void testApp::update() {
 		}
 	}
 	
-	e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
+	e->data[1]->instrumento = 2; // TEST: Selecciono el instrumento
 
 	
 	if (e->data[1]->instrumento == 1){ // Batería seleccionada
@@ -265,9 +265,9 @@ void testApp::update() {
 	}
 
 	if (e->data[1]->instrumento == 2){ // Instrumento Viento seleccionada
-
+		
+		note = ofMap('G', 48, 122, 0, 127);
 		if (!hit_wiimote1_1 && e->data[1]->wiimote->Button_Up == 1){
-			note = ofMap('G', 48, 122, 0, 127);
 			midiOutW2.sendNoteOn(1, note,  velocity);
 			hit_wiimote1_1 = true;
 		} else if (e->data[1]->wiimote->Button_Up == 0){
@@ -275,17 +275,17 @@ void testApp::update() {
 			midiOutW2 << NoteOff(1, note, velocity);
 		}
 
+		note = ofMap('H', 48, 122, 0, 127);
 		if (!hit_wiimote1_2 && e->data[1]->wiimote->Button_Down == 1){
-			note = ofMap('H', 48, 122, 0, 127);
 			midiOutW2.sendNoteOn(2, note,  velocity);
 			hit_wiimote1_2 = true;
 		} else if (e->data[1]->wiimote->Button_Down == 0){
 			hit_wiimote1_2 = false;
 			midiOutW2 << NoteOff(2, note, velocity);
 		}
-
+		
+		note = ofMap('J', 48, 122, 0, 127);
 		if (!hit_wiimote1_3 && e->data[1]->wiimote->Button_A == 1){
-			note = ofMap('J', 48, 122, 0, 127);
 			midiOutW2.sendNoteOn(3, note,  velocity);
 			hit_wiimote1_3 = true;
 		} else if (e->data[1]->wiimote->Button_A == 0){
@@ -294,8 +294,8 @@ void testApp::update() {
 
 		}
 		
+		note = ofMap('K', 48, 122, 0, 127);
 		if (!hit_wiimote1_4 && e->data[1]->wiimote->Button_One == 1){
-			note = ofMap('K', 48, 122, 0, 127);
 			midiOutW2.sendNoteOn(4, note,  velocity);
 			hit_wiimote1_4 = true;
 		} else if (e->data[1]->wiimote->Button_One == 0){
@@ -303,8 +303,8 @@ void testApp::update() {
 			midiOutW2 << NoteOff(4, note, velocity);
 		}
 
+		note = ofMap('L', 48, 122, 0, 127);
 		if (!hit_wiimote1_5 && e->data[1]->wiimote->Button_Two == 1){
-			note = ofMap('L', 48, 122, 0, 127);
 			midiOutW2.sendNoteOn(5, note,  velocity);
 			hit_wiimote1_5 = true;
 		} else if (e->data[1]->wiimote->Button_Two == 0){
@@ -322,7 +322,7 @@ void testApp::draw() {
 	// let's see something
 	ofSetColor(0);
 	stringstream text;
-	/*text << "connected to port " << midiOutW1.getPort() 
+	text << "connected to port " << midiOutW1.getPort() 
 		<< " \"" << midiOutW1.getName() << "\"" << endl
 		<< "is virtual?: " << midiOutW1.isVirtual() << endl << endl
 		<< "sending to channel " << channel << endl << endl
@@ -333,8 +333,8 @@ void testApp::draw() {
 		<< "bend: " << bend << endl
 		<< "touch: " << touch << endl
 		<< "polytouch: " << polytouch << endl
-		<< "wiimote X: " << e->data[1]->wiimote->Accel_X << endl
-		<< "wiimote Y: " << e->data[1]->wiimote->Accel_Y << endl
+		<< "wiimote One: " << e->data[1]->wiimote->Button_One << endl
+		<< "wiimote Two: " << e->data[1]->wiimote->Button_Two << endl
 		<< "wiimote Z: " << e->data[1]->wiimote->Accel_Z << endl
 		<< "nunchuk X: " << e->data[1]->nunchuck->Accel_X << endl
 		<< "nunchuk Y: " << e->data[1]->nunchuck->Accel_Y << endl
@@ -343,8 +343,8 @@ void testApp::draw() {
 
 		
 		;
-	ofDrawBitmapString(text.str(), 20, 20);*/
-	
+	ofDrawBitmapString(text.str(), 20, 20);
+	/*
 	//Muestro imagenes
 	/*tambor.resize(200,200);
 	tambor.draw(0,0);
