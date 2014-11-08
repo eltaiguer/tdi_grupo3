@@ -117,6 +117,19 @@ namespace WiimoteTest
             nw.Send(msg);
 
 
+            address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Wiimote/Gestures";
+            if (!hit && ws.AccelState.Values.Z ==1)
+            {               
+                hit = true;
+                nw.Send(msg);
+
+            }
+            else if (ws.AccelState.Values.Z < -1)
+            {
+                hit = false;
+            }
+
+
 			switch(ws.ExtensionType)
 			{
 				case ExtensionType.NunchukI:
