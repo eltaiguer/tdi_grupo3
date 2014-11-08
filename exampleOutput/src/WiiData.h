@@ -6,6 +6,7 @@ class WiiData{
 public:
 	Wiimote* wiimote;
 	Nunchuck* nunchuck;
+	int instrumento;
 
 	WiiData();
 	~WiiData();

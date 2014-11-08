@@ -11,6 +11,7 @@ public:
 	int Button_Plus;
 	int Button_One;
 	int Button_Two;
+	int Button_B;
 
 	float Accel_X;
 	float Accel_Y;

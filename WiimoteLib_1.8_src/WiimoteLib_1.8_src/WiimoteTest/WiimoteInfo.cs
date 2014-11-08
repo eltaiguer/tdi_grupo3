@@ -127,7 +127,7 @@ namespace WiimoteTest
 
 
                     address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Buttons";
-                    msg = new OscElement(address, (bool)ws.NunchukState.C, (bool)ws.NunchukState.Z, 
+                    msg = new OscElement(address, Convert.ToInt32(ws.NunchukState.C), Convert.ToInt32(ws.NunchukState.Z), 
                                                             (float)ws.NunchukState.Joystick.X, (float) ws.NunchukState.Joystick.Y);
                     nw.Send(msg);
 
@@ -154,7 +154,7 @@ namespace WiimoteTest
 
 
                     address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Buttons";
-                    msg = new OscElement(address, (bool)ws.NunchukState.C, (bool)ws.NunchukState.Z, 
+                    msg = new OscElement(address, Convert.ToInt32(ws.NunchukState.C), Convert.ToInt32(ws.NunchukState.Z), 
                                                             (float)ws.NunchukState.Joystick.X, (float) ws.NunchukState.Joystick.Y);
                     nw.Send(msg);
 

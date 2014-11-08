@@ -4,8 +4,8 @@ class Nunchuck{
 public:
 	int Button_C;
 	int Button_Z;
-	int Button_X;
-	int Button_Y;
+	float Button_X;
+	float Button_Y;
 
 	float Accel_X;
 	float Accel_Y;

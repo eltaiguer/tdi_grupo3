@@ -30,14 +30,20 @@ void testApp::setup() {
 	channel = 2;
 	currentPgm = 0;
 	note = 0;
-	velocity = 0;
+	velocity = 64;
 	pan = 0;
 	bend = 0;
 	touch = 0;
 	polytouch = 0;
 
 	sonar = false;
-
+	
+	hit_wiimote1_1 = false;
+	hit_wiimote1_2 = false;
+	hit_wiimote1_3 = false;
+	hit_wiimote1_4 = false;
+	hit_wiimote1_5 = false;
+	
 	cout << "listening for osc messages on port " << PORT << "\n";
 	receiver.setup(PORT);
 
@@ -60,8 +66,6 @@ void testApp::update() {
 
 	// check for waiting messages
 	while(receiver.hasWaitingMessages()){
-		// get the next message
-		printf("hay mensaje\n");
 
 		// get the next message
 		ofxOscMessage m;
@@ -69,7 +73,7 @@ void testApp::update() {
 
 		// Recorro las direcciones para saber de donde es el mensaje
 		bool dirEncontrada = false;
-		int indice_remote = 1;
+		int indice_remote = 0;
 		string str_indice_remote;
 		while(!dirEncontrada){
 			
@@ -79,8 +83,8 @@ void testApp::update() {
 			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Nunchuk/Buttons"){
 				e->data[indice_remote]->nunchuck->Button_C = m.getArgAsInt32(0);
 				e->data[indice_remote]->nunchuck->Button_Z = m.getArgAsInt32(1);
-				e->data[indice_remote]->nunchuck->Button_X = m.getArgAsInt32(2);
-				e->data[indice_remote]->nunchuck->Button_Y = m.getArgAsInt32(3);
+				e->data[indice_remote]->nunchuck->Button_X = m.getArgAsFloat(2);
+				e->data[indice_remote]->nunchuck->Button_Y = m.getArgAsFloat(3);
 				dirEncontrada = true;
 			}
 			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Nunchuk/Accel"){
@@ -102,6 +106,7 @@ void testApp::update() {
 				e->data[indice_remote]->wiimote->Button_Plus = m.getArgAsInt32(7);
 				e->data[indice_remote]->wiimote->Button_One = m.getArgAsInt32(8);
 				e->data[indice_remote]->wiimote->Button_Two = m.getArgAsInt32(9);
+				e->data[indice_remote]->wiimote->Button_B = m.getArgAsInt32(10);
 				dirEncontrada = true;
 			}
 			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Wiimote/Accel"){
@@ -212,7 +217,94 @@ void testApp::update() {
 	}
 	
 
+	e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
+
 	
+	if (e->data[1]->instrumento == 1){ // Batería seleccionada
+
+		if (!hit_wiimote1_1 && e->data[1]->wiimote->Accel_Z > -1 && e->data[1]->wiimote->Button_B == 0){ // HIHAT
+			note = ofMap('W', 48, 122, 0, 127);
+			midiOutW1.sendNoteOn(1, note,  velocity);
+			hit_wiimote1_1 = true;
+		} else if (e->data[1]->wiimote->Accel_Z < -1 && e->data[1]->wiimote->Button_B == 0){
+			hit_wiimote1_1 = false;
+		}
+
+		if (!hit_wiimote1_2 && e->data[1]->wiimote->Accel_Z > -1 && e->data[1]->wiimote->Button_B == 1){ // OTRO PLATILLO
+			note = ofMap('W', 48, 122, 0, 127);
+			midiOutW1.sendNoteOn(2, note,  velocity);
+			hit_wiimote1_2 = true;
+		} else if (e->data[1]->wiimote->Accel_Z < -1 && e->data[1]->wiimote->Button_B == 1){
+			hit_wiimote1_2 = false;
+		}
+
+		if (!hit_wiimote1_3 && e->data[1]->nunchuck->Accel_Z > -1 && e->data[1]->nunchuck->Button_Z == 0){ // REDOBLANTE
+			note = ofMap('W', 48, 122, 0, 127);
+			midiOutW1.sendNoteOn(3, note,  velocity);
+			hit_wiimote1_3 = true;
+		} else if (e->data[1]->nunchuck->Accel_Z < -1 && e->data[1]->nunchuck->Button_Z == 0){
+			hit_wiimote1_3 = false;
+		}
+
+		if (!hit_wiimote1_4 && e->data[1]->nunchuck->Accel_Z > -1 && e->data[1]->nunchuck->Button_Z == 1){ // OTRO REDOBLANTE
+			note = ofMap('W', 48, 122, 0, 127);
+			midiOutW1.sendNoteOn(4, note,  velocity);
+			hit_wiimote1_4 = true;
+		} else if (e->data[1]->nunchuck->Accel_Z < -1){
+			hit_wiimote1_4 = false;
+		}
+	}
+
+	if (e->data[1]->instrumento == 2){ // Instrumento Viento seleccionada
+
+		if (!hit_wiimote1_1 && e->data[1]->wiimote->Button_Up == 1){
+			note = ofMap('G', 48, 122, 0, 127);
+			midiOutW2.sendNoteOn(1, note,  velocity);
+			hit_wiimote1_1 = true;
+		} else if (e->data[1]->wiimote->Button_Up == 0){
+			hit_wiimote1_1 = false;
+			midiOutW2 << NoteOff(1, note, velocity);
+		}
+
+		if (!hit_wiimote1_2 && e->data[1]->wiimote->Button_Down == 1){
+			note = ofMap('H', 48, 122, 0, 127);
+			midiOutW2.sendNoteOn(2, note,  velocity);
+			hit_wiimote1_2 = true;
+		} else if (e->data[1]->wiimote->Button_Down == 0){
+			hit_wiimote1_2 = false;
+			midiOutW2 << NoteOff(2, note, velocity);
+		}
+
+		if (!hit_wiimote1_3 && e->data[1]->wiimote->Button_A == 1){
+			note = ofMap('J', 48, 122, 0, 127);
+			midiOutW2.sendNoteOn(3, note,  velocity);
+			hit_wiimote1_3 = true;
+		} else if (e->data[1]->wiimote->Button_A == 0){
+			hit_wiimote1_3 = false;
+			midiOutW2 << NoteOff(3, note, velocity);
+
+		}
+		
+		if (!hit_wiimote1_4 && e->data[1]->wiimote->Button_One == 1){
+			note = ofMap('K', 48, 122, 0, 127);
+			midiOutW2.sendNoteOn(4, note,  velocity);
+			hit_wiimote1_4 = true;
+		} else if (e->data[1]->wiimote->Button_One == 0){
+			hit_wiimote1_4 = false;
+			midiOutW2 << NoteOff(4, note, velocity);
+		}
+
+		if (!hit_wiimote1_5 && e->data[1]->wiimote->Button_Two == 1){
+			note = ofMap('L', 48, 122, 0, 127);
+			midiOutW2.sendNoteOn(5, note,  velocity);
+			hit_wiimote1_5 = true;
+		} else if (e->data[1]->wiimote->Button_Two == 0){
+			hit_wiimote1_5 = false;
+			midiOutW2 << NoteOff(5, note, velocity);
+		}
+	}
+
+
 }
 
 //--------------------------------------------------------------
@@ -231,7 +323,17 @@ void testApp::draw() {
 		<< "pan: " << pan << endl
 		<< "bend: " << bend << endl
 		<< "touch: " << touch << endl
-		<< "polytouch: " << polytouch;
+		<< "polytouch: " << polytouch << endl
+		<< "wiimote X: " << e->data[1]->wiimote->Accel_X << endl
+		<< "wiimote Y: " << e->data[1]->wiimote->Accel_Y << endl
+		<< "wiimote Z: " << e->data[1]->wiimote->Accel_Z << endl
+		<< "nunchuk X: " << e->data[1]->nunchuck->Accel_X << endl
+		<< "nunchuk Y: " << e->data[1]->nunchuck->Accel_Y << endl
+		<< "nunchuk Z: " << e->data[1]->nunchuck->Accel_Z << endl
+		
+
+		
+		;
 	ofDrawBitmapString(text.str(), 20, 20);
 	
 }
@@ -274,163 +376,9 @@ void testApp::enviarNotaViento(int canal, int tecla){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key) {
 
-	enviarNota(key);
-	
-
-
-
-	//// send a note on if the key is a letter or a number
-	//if(isalpha((unsigned char) key)) {
-
-	//	// scale the ascii values to midi velocity range 0-127
-	//	// see an ascii table: http://www.asciitable.com/
-	//	note = ofMap(key, 48, 122, 0, 127);
-
-	//	velocity = 64;
-	//	midiOutW1.sendNoteOn(channel, note,  velocity);
-	//	printf("envio nota: %d\n", key);
-	//}
-
-	
-
-	if (key == OF_KEY_PAGE_UP){
-		note = ofMap(key, 48, 122, 0, 127);
-		midiOutW1.sendNoteOn(channel, note,  velocity);
-		// Envio nota para subir el volumen
-	}
-
-	if (key == OF_KEY_PAGE_DOWN){
-		// Envio nota para bajar el volumen
-		note = ofMap(key, 48, 122, 0, 127);
-		midiOutW1.sendNoteOn(channel, note,  velocity);
-	}
-
-	// Utilizo los numeros para cambiar de canal
-	if (isdigit((unsigned char) key)){
-		printf("%d",key-48);
-		channel = key-48;
-
-	}
 }
 
 //--------------------------------------------------------------
-//void testApp::keyReleased(int key) {
-//	
-//	switch(key) {
-//	
-//		// send pgm change on arrow keys
-//		case OF_KEY_UP:
-//			currentPgm = (int) ofClamp(currentPgm+1, 0, 127);
-//			midiOutW1.sendProgramChange(channel, currentPgm);
-//			break;
-//		case OF_KEY_DOWN:
-//			currentPgm = (int) ofClamp(currentPgm-1, 0, 127);
-//			midiOutW1 << ProgramChange(channel, currentPgm); // stream interface
-//			break;
-//
-//		// aftertouch
-//		case '[':
-//			touch = 64;
-//			midiOutW1.sendAftertouch(channel, touch);
-//			break;
-//		case ']':
-//			touch = 127;
-//			midiOutW1 << Aftertouch(channel, touch); // stream interface
-//			break;
-//
-//		// poly aftertouch
-//		case '<':
-//			polytouch = 64;
-//			midiOutW1.sendPolyAftertouch(channel, 64, polytouch);
-//			break;
-//		case '>':
-//			polytouch = 127;
-//			midiOutW1 << PolyAftertouch(channel, 64, polytouch); // stream interface
-//			break;
-//			
-//		// sysex using raw bytes (use shift + s)
-//		case 'S': {
-//			// send a pitch change to Part 1 of a MULTI on an Akai sampler
-//			// from http://troywoodfield.tripod.com/sysex.html
-//			//
-//			// do you have an S2000 to try?
-//			//
-//			// note: this is probably not as efficient as the next two methods
-//			//       since it sends only one byte at a time, instead of all
-//			//       at once
-//			//
-//			midiOutW1.sendMidiByte(MIDI_SYSEX);
-//			midiOutW1.sendMidiByte(0x47);	// akai manufacturer code
-//			midiOutW1.sendMidiByte(0x00); // channel 0
-//			midiOutW1.sendMidiByte(0x42); // MULTI
-//			midiOutW1.sendMidiByte(0x48); // using an Akai S2000
-//			midiOutW1.sendMidiByte(0x00); // Part 1
-//			midiOutW1.sendMidiByte(0x00);	// transpose
-//			midiOutW1.sendMidiByte(0x01); // Access Multi Parts
-//			midiOutW1.sendMidiByte(0x4B); // offset
-//			midiOutW1.sendMidiByte(0x00);	// offset
-//			midiOutW1.sendMidiByte(0x01); // Field size = 1
-//			midiOutW1.sendMidiByte(0x00); // Field size = 1
-//			midiOutW1.sendMidiByte(0x04); // pitch value = 4
-//			midiOutW1.sendMidiByte(0x00); // offset
-//			midiOutW1.sendMidiByte(MIDI_SYSEX_END);
-//			
-//			// send again using a vector
-//			//
-//			// sends all bytes within one message
-//			//
-//			vector<unsigned char> sysexMsg;
-//			sysexMsg.push_back(MIDI_SYSEX);
-//			sysexMsg.push_back(0x47);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(0x42);
-//			sysexMsg.push_back(0x48);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(0x01);
-//			sysexMsg.push_back(0x4B);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(0x01);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(0x04);
-//			sysexMsg.push_back(0x00);
-//			sysexMsg.push_back(MIDI_SYSEX_END);
-//			midiOutW1.sendMidiBytes(sysexMsg);
-//			
-//			// send again with the byte stream interface
-//			//
-//			// builds the message, then sends it on FinishMidi()
-//			//
-//			midiOutW1 << StartMidi() << MIDI_SYSEX
-//					<< 0x47 << 0x00 << 0x42 << 0x48 << 0x00 << 0x00 << 0x01
-//					<< 0x4B << 0x00 << 0x01 << 0x00 << 0x04 << 0x00
-//					<< MIDI_SYSEX_END << FinishMidi();
-//			break;
-//		}
-//		
-//		// print the port list
-//		case '?':
-//			midiOutW1.listPorts();
-//			break;
-//		
-//		// note off using raw bytes
-//		case ' ':	
-//			// send with the byte stream interface, noteoff for note 60
-//			midiOutW1 << StartMidi() << 0x80 << 0x3C << 0x40 << FinishMidi();
-//			break;
-//
-//		default:
-//    
-//			// send a note off if the key is a letter or a number
-//			if(isalnum(key)) {
-//				note = ofMap(key, 48, 122, 0, 127);
-//				velocity = 0;
-//				midiOutW1 << NoteOff(channel, note, velocity); // stream interface
-//			}
-//			break;
-//	}
-//}
-
 void testApp::keyReleased(int key) {
 	//send a note off if the key is a letter or a number
 	if(isalnum(key)) {

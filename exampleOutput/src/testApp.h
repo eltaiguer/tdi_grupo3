@@ -52,6 +52,11 @@ public:
 	string str_teclas;
 
 	bool sonar;
+	bool hit_wiimote1_1;
+	bool hit_wiimote1_2;
+	bool hit_wiimote1_3;
+	bool hit_wiimote1_4;
+	bool hit_wiimote1_5;
 
 	Estructura* e;
 };

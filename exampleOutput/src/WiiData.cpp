@@ -4,6 +4,7 @@ WiiData::WiiData()
 {
 	wiimote = new Wiimote();
 	nunchuck = new Nunchuck();
+	instrumento = 0;
 }
 
 WiiData::~WiiData()
