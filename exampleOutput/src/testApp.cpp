@@ -82,7 +82,7 @@ void testApp::update() {
 
 		// Recorro las direcciones para saber de donde es el mensaje
 		bool dirEncontrada = false;
-		int indice_remote = 0;
+		int indice_remote = 1;
 		string str_indice_remote;
 		while(!dirEncontrada){
 			
