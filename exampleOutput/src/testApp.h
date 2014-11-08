@@ -13,6 +13,7 @@
 #include "ofMain.h"
 #include "ofxMidi.h"
 #include "ofxOsc.h"
+#include "Estructura.h"
 
 // listen on port 12345
 #define PORT 12345
@@ -34,8 +35,11 @@ public:
 	void mouseReleased();
 	void enviarNota(int key);
 	void enviarNotaViento(int canal, int key);
-	ofxMidiOut midiOut;
-	ofxMidiOut midiOutViento;
+	
+	ofxMidiOut midiOutW1;
+	ofxMidiOut midiOutW2;
+	ofxMidiOut midiOutW3;
+	ofxMidiOut midiOutW4;
 	int channel;
 	ofxOscReceiver receiver;
 	int current_msg_string;
@@ -48,4 +52,6 @@ public:
 	string str_teclas;
 
 	bool sonar;
+
+	Estructura* e;
 };

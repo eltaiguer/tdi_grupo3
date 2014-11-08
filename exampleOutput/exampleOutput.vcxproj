@@ -41,7 +41,7 @@
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_debug</TargetName>
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -58,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -104,7 +104,9 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="src\Estructura.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Nunchuk.cpp" />
     <ClCompile Include="src\testApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.cpp" />
@@ -114,6 +116,8 @@
     <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.cpp" />
+    <ClCompile Include="src\Wiidata.cpp" />
+    <ClCompile Include="src\Wiimote.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
@@ -136,6 +140,8 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="src\Estructura.h" />
+    <ClInclude Include="src\Nunchuk.h" />
     <ClInclude Include="src\testApp.h" />
     <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiConstants.h" />
     <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.h" />
@@ -149,6 +155,8 @@
     <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiTypes.h" />
     <ClInclude Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtError.h" />
     <ClInclude Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.h" />
+    <ClInclude Include="src\WiiData.h" />
+    <ClInclude Include="src\Wiimote.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
