@@ -85,7 +85,7 @@
     <ClCompile Include="src\Nunchuk.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Wiidata.cpp">
+    <ClCompile Include="src\WiiData.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Wiimote.cpp">

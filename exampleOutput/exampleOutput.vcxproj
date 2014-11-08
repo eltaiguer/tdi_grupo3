@@ -41,7 +41,7 @@
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_debug</TargetName>
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -58,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOsC\src;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsC\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsC\libs\oscpack\src\osc;..\..\..\addons\ofxOsC\libs\oscpack\src\ip;..\..\..\addons\ofxOsC\libs\oscpack\src;..\..\..\addons\ofxOsC\libs\oscpack;..\..\..\addons\ofxOsC\libs;%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
     <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp" />
     <ClCompile Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.cpp" />
-    <ClCompile Include="src\Wiidata.cpp" />
+    <ClCompile Include="src\WiiData.cpp" />
     <ClCompile Include="src\Wiimote.cpp" />
   </ItemGroup>
   <ItemGroup>
