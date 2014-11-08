@@ -49,6 +49,15 @@ void testApp::setup() {
 
 	e = new Estructura();
 
+	guitarra.loadImage("guitarra.png");
+	piano.loadImage("piano.png");
+	flauta.loadImage("flauta.png");
+	tambor.loadImage("tambor.png");
+
+	muestroPiano    = false;
+	muestroGuitarra = false;
+	muestroTambor   = false;
+	muestroFlauta   = false;
 
 }
 
@@ -129,7 +138,7 @@ void testApp::update() {
 		}
 	}
 
-
+	
 	// FIN CAPUTRA
 
 	// CODIGO VIEJO
@@ -165,6 +174,7 @@ void testApp::update() {
 			//printf("nota: "+note);
 			velocity = 64;
 			midiOutW1.sendNoteOn(2, note,  velocity);
+
 		}
 
 		if (m.getAddress()=="/test/Brian/nunchuk"){
@@ -216,7 +226,6 @@ void testApp::update() {
 		}
 	}
 	
-
 	e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
 
 	
@@ -313,7 +322,7 @@ void testApp::draw() {
 	// let's see something
 	ofSetColor(0);
 	stringstream text;
-	text << "connected to port " << midiOutW1.getPort() 
+	/*text << "connected to port " << midiOutW1.getPort() 
 		<< " \"" << midiOutW1.getName() << "\"" << endl
 		<< "is virtual?: " << midiOutW1.isVirtual() << endl << endl
 		<< "sending to channel " << channel << endl << endl
@@ -334,7 +343,43 @@ void testApp::draw() {
 
 		
 		;
-	ofDrawBitmapString(text.str(), 20, 20);
+	ofDrawBitmapString(text.str(), 20, 20);*/
+	
+	//Muestro imagenes
+	/*tambor.resize(200,200);
+	tambor.draw(0,0);
+
+	piano.resize(200,200);
+	piano.draw(200,0);
+
+	flauta.resize(200,200);
+	flauta.draw(600,0);
+
+	guitarra.resize(200,200);
+	guitarra.draw(800,0);*/
+
+	//
+
+	//Mostramos los titulos
+	 
+	ofDrawBitmapString("WiiMote I",20,20);
+	ofDrawBitmapString("WiiMote II",200,20);
+	ofDrawBitmapString("WiiMote III",380,20);
+	ofDrawBitmapString("WiiMote IV",560,20);
+
+	int tope = 4;
+	for ( int i = 1; i < tope; i++) {
+		if (e->data[i]->wiimote->Button_A) {		
+			tambor.resize(50,50);
+			tambor.draw(10,50);
+		}
+
+		if (e->data[i]->wiimote->Button_One) {
+			guitarra.resize(50,50);
+			guitarra.draw(10,150);
+		}
+		//break;
+	}
 	
 }
 

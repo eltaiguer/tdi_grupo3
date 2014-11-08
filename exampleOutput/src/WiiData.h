@@ -2,6 +2,7 @@
 #include "Nunchuk.h"
 
 
+
 class WiiData{
 public:
 	Wiimote* wiimote;
@@ -11,6 +12,7 @@ public:
 	WiiData();
 	~WiiData();
 
+	
 private:
 
 };

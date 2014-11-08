@@ -59,4 +59,7 @@ public:
 	bool hit_wiimote1_5;
 
 	Estructura* e;
+
+	ofImage tambor,piano,guitarra,flauta;
+	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
 };
