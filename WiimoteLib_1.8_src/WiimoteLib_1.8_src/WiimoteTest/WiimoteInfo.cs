@@ -21,7 +21,7 @@ namespace WiimoteTest
     {
         #region WiiMusic
 
-        private const string DEST_IP = "172.16.108.64"; //"127.0.0.1";
+        private const string DEST_IP = /*"172.16.108.64"; */"127.0.0.1";
         public const int PORT = 12345;
         private bool hitDownWiimote = false;
         private bool hitDownChuk = false;
