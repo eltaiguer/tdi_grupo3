@@ -170,6 +170,7 @@ void testApp::update() {
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(1, note,  velocity);
 			hit_wiimote1_1 = true;
+			e->data[1]->wiimote->SwingDown = 0;
 		} else if (e->data[1]->wiimote->SwingDown == 0 && e->data[1]->wiimote->Button_B == 0){
 			hit_wiimote1_1 = false;
 		}
@@ -178,6 +179,7 @@ void testApp::update() {
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(2, note,  velocity);
 			hit_wiimote1_2 = true;
+			e->data[1]->wiimote->SwingDown = 0;
 		} else if (e->data[1]->wiimote->SwingDown == 0 && e->data[1]->wiimote->Button_B == 1){
 			hit_wiimote1_2 = false;
 		}
@@ -186,6 +188,7 @@ void testApp::update() {
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(3, note,  velocity);
 			hit_wiimote1_3 = true;
+			e->data[1]->nunchuck->SwingDown = 0;
 		} else if (e->data[1]->nunchuck->SwingDown == 0 && e->data[1]->nunchuck->Button_Z == 0){
 			hit_wiimote1_3 = false;
 		}
@@ -194,6 +197,7 @@ void testApp::update() {
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(4, note,  velocity);
 			hit_wiimote1_4 = true;
+			e->data[1]->nunchuck->SwingDown = 0;
 		} else if (e->data[1]->nunchuck->SwingDown == 0 && e->data[1]->nunchuck->Button_Z == 1){
 			hit_wiimote1_4 = false;
 		}
