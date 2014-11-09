@@ -12,6 +12,11 @@ Nunchuck::Nunchuck()
 	Accel_Z = 0;
 	Accel_Roll = 0;
 	Accel_Pitch = 0;
+
+	SwingUp = 0;
+	SwingRight = 0;
+	SwingDown = 0;
+	SwingLeft = 0;
 }
 
 Nunchuck::~Nunchuck()

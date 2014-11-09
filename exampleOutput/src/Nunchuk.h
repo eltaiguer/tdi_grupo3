@@ -13,6 +13,10 @@ public:
 	float Accel_Roll;
 	float Accel_Pitch;
 
+	int SwingUp;
+	int SwingRight;
+	int SwingDown;
+	int SwingLeft;
 
 	Nunchuck();
 	~Nunchuck();

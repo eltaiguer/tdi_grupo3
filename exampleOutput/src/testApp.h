@@ -17,7 +17,6 @@
 
 // listen on port 12345
 #define PORT 12345
-#define NUM_MSG_STRINGS 20
 
 class testApp : public ofBaseApp {
 public:
@@ -43,8 +42,6 @@ public:
 	int channel;
 	ofxOscReceiver receiver;
 	int current_msg_string;
-	string msg_strings[NUM_MSG_STRINGS];
-	float timers[NUM_MSG_STRINGS];
 
 	unsigned int currentPgm;
 	int note, velocity;
@@ -60,6 +57,6 @@ public:
 
 	Estructura* e;
 
-	ofImage tambor,tambor_selected,piano,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected;
+	ofImage wiimoteI,wiimoteII,wiimoteIII,wiimoteIV,bateria,bateria_selected,piano,maracas,maracas_selected,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected;
 	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
 };

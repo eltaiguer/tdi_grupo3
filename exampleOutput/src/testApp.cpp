@@ -15,7 +15,7 @@
 void testApp::setup() {
 
 	ofSetVerticalSync(true);
-	ofBackground(255);
+	ofBackground(0);
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetFrameRate(200);
 
@@ -48,16 +48,22 @@ void testApp::setup() {
 	receiver.setup(PORT);
 
 	e = new Estructura();
+	
+	//Titulos
+	wiimoteI.loadImage("wiimote1.png");
+	wiimoteII.loadImage("wiimote2.png");
+	wiimoteIII.loadImage("wiimote3.png");
+	wiimoteIV.loadImage("wiimote4.png");
 
-	guitarra.loadImage("guitarra.png");
-	guitarra_selected.loadImage("guitarra_selected.png");
+	//Imagenes
 	piano.loadImage("piano.png");
 	piano_selected.loadImage("piano_selected.png");
+	maracas.loadImage("maracas.png");
+	maracas_selected.loadImage("maracas_selected.png");
+	bateria.loadImage("bateria.png");
+	bateria_selected.loadImage("bateria_selected.png");
 	flauta.loadImage("flauta.png");
 	flauta_selected.loadImage("flauta_selected.png");
-	tambor.loadImage("tambor.png");
-	tambor_selected.loadImage("tambor_selected.png"); 
-
 	 
 }
 
@@ -65,13 +71,6 @@ void testApp::setup() {
 void testApp::update() {
 	
 	// CAPTURA DE DATOS DE LOS MENSAJES OSC
-	
-	// hide old messages
-	for(int i = 0; i < NUM_MSG_STRINGS; i++){
-		if(timers[i] < ofGetElapsedTimef()){
-			msg_strings[i] = "";
-		}
-	}
 
 	// check for waiting messages
 	while(receiver.hasWaitingMessages()){
@@ -102,6 +101,13 @@ void testApp::update() {
 				e->data[indice_remote]->nunchuck->Accel_Z = m.getArgAsFloat(2);
 				e->data[indice_remote]->nunchuck->Accel_Roll = m.getArgAsFloat(3);
 				e->data[indice_remote]->nunchuck->Accel_Pitch = m.getArgAsFloat(4);
+				dirEncontrada = true;
+			}
+			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Nunchuk/Gestures"){
+				e->data[indice_remote]->nunchuck->SwingUp = m.getArgAsInt32(0);
+				e->data[indice_remote]->nunchuck->SwingRight = m.getArgAsInt32(1);
+				e->data[indice_remote]->nunchuck->SwingDown = m.getArgAsInt32(2);
+				e->data[indice_remote]->nunchuck->SwingLeft = m.getArgAsInt32(3);
 				dirEncontrada = true;
 			}
 			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Wiimote/Buttons"){
@@ -141,9 +147,9 @@ void testApp::update() {
 	for (int i =1; i <= 4; i++){
 		//Actualizo el instrumento que esta seleccionado con el right
 		if (!e->data[i]->sel_right &&  e->data[i]->wiimote->Button_Right){
-			e->data[i]->instrumento = ((e->data[i]->instrumento + 1 )  %  6);
+			e->data[i]->instrumento = ((e->data[i]->instrumento + 1 )  %  5);
 			if (e->data[i]->instrumento == 0){
-				e->data[i]->instrumento++;
+				e->data[i]->instrumento = 1;
 			}
 			e->data[i]->sel_right = true;
 		} else if (!e->data[i]->wiimote->Button_Right){
@@ -154,125 +160,41 @@ void testApp::update() {
 	
 	// FIN CAPUTRA
 
-	// CODIGO VIEJO
-
-	// Codigo para que envíe una nota y modificar el sonido
-	//note = ofMap('W', 48, 122, 0, 127);
-	////printf("nota: "+note);
-	//velocity = 64;
-	//midiOutW1.sendNoteOn(channel, note,  velocity);
-	// Fin codigo prueba
-
-
-
-	// hide old messages
-	for(int i = 0; i < NUM_MSG_STRINGS; i++){
-		if(timers[i] < ofGetElapsedTimef()){
-			msg_strings[i] = "";
-		}
-	}
-
-	// check for waiting messages
-	while(receiver.hasWaitingMessages()){
-		// get the next message
-
-
-		// get the next message
-		ofxOscMessage m;
-		receiver.getNextMessage(&m);
-
-		if (m.getAddress()=="/test/Brian/wiimote"){
-
-			note = ofMap('W', 48, 122, 0, 127);
-			//printf("nota: "+note);
-			velocity = 64;
-			midiOutW1.sendNoteOn(2, note,  velocity);
-
-		}
-
-		if (m.getAddress()=="/test/Brian/nunchuk"){
-
-			note = ofMap('W', 48, 122, 0, 127);
-			//printf("nota: "+note);
-			velocity = 64;
-			midiOutW1.sendNoteOn(3, note,  velocity);
-			
-		}
-
-		if (m.getAddress()=="/test/Brian/wiimote/viento"){
-			int tecla = m.getArgAsInt32(0);
-			
-			if (tecla == -1){
-				sonar = false;
-				midiOutW1 << NoteOff(channel, note, velocity); // stream interface
-			} else {
-				enviarNota(tecla+48+22);
-
-			}
-			/*
-			str_teclas = m.getArgAsString(0);
-			
-			//printf("Tecla: %s\n", str_teclas);
-			if (str_teclas == "000000"){
-				sonar = false;
-				midiOutW1 << NoteOff(channel, note, velocity); // stream interface
-			} else {
-				if (str_teclas[0] == 1)
-					enviarNotaViento(1,1+48+22);
-				if (str_teclas[1] == 1)
-					enviarNotaViento(2,2+48+22);
-				if (str_teclas[2] == 1)
-					enviarNotaViento(3,3+48+22);
-				if (str_teclas[3] == 1)
-					enviarNotaViento(4,4+48+22);
-				if (str_teclas[4] == 1)
-					enviarNotaViento(5,5+48+22);
-				if (str_teclas[5] == 1)
-					enviarNotaViento(6,6+48+22);
-			}
-			*/
-			
-			//note = ofMap(tecla+48+22, 48, 122, 0, 127);
-			//midiOutW1.sendNoteOn(4, note,  velocity);
-			
-			
-		}
-	}
-	
-	e->data[1]->instrumento = 2; // TEST: Selecciono el instrumento
+	//e->data[1]->instrumento = 1; // TEST: Selecciono el instrumento
 
 	
 	if (e->data[1]->instrumento == 1){ // Batería seleccionada
 
-		if (!hit_wiimote1_1 && e->data[1]->wiimote->Accel_Z > -1 && e->data[1]->wiimote->Button_B == 0){ // HIHAT
+
+		if (!hit_wiimote1_1 && e->data[1]->wiimote->SwingDown == 1 && e->data[1]->wiimote->Button_B == 0){ // HIHAT
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(1, note,  velocity);
 			hit_wiimote1_1 = true;
-		} else if (e->data[1]->wiimote->Accel_Z < -1 && e->data[1]->wiimote->Button_B == 0){
+		} else if (e->data[1]->wiimote->SwingDown == 0 && e->data[1]->wiimote->Button_B == 0){
 			hit_wiimote1_1 = false;
 		}
 
-		if (!hit_wiimote1_2 && e->data[1]->wiimote->Accel_Z > -1 && e->data[1]->wiimote->Button_B == 1){ // OTRO PLATILLO
+		if (!hit_wiimote1_2 && e->data[1]->wiimote->SwingDown == 1 && e->data[1]->wiimote->Button_B == 1){ // OTRO PLATILLO
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(2, note,  velocity);
 			hit_wiimote1_2 = true;
-		} else if (e->data[1]->wiimote->Accel_Z < -1 && e->data[1]->wiimote->Button_B == 1){
+		} else if (e->data[1]->wiimote->SwingDown == 0 && e->data[1]->wiimote->Button_B == 1){
 			hit_wiimote1_2 = false;
 		}
 
-		if (!hit_wiimote1_3 && e->data[1]->nunchuck->Accel_Z > -1 && e->data[1]->nunchuck->Button_Z == 0){ // REDOBLANTE
+		if (!hit_wiimote1_3 && e->data[1]->nunchuck->SwingDown == 1 && e->data[1]->nunchuck->Button_Z == 0){ // REDOBLANTE
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(3, note,  velocity);
 			hit_wiimote1_3 = true;
-		} else if (e->data[1]->nunchuck->Accel_Z < -1 && e->data[1]->nunchuck->Button_Z == 0){
+		} else if (e->data[1]->nunchuck->SwingDown == 0 && e->data[1]->nunchuck->Button_Z == 0){
 			hit_wiimote1_3 = false;
 		}
 
-		if (!hit_wiimote1_4 && e->data[1]->nunchuck->Accel_Z > -1 && e->data[1]->nunchuck->Button_Z == 1){ // OTRO REDOBLANTE
+		if (!hit_wiimote1_4 && e->data[1]->nunchuck->SwingDown == 1 && e->data[1]->nunchuck->Button_Z == 1){ // OTRO REDOBLANTE
 			note = ofMap('W', 48, 122, 0, 127);
 			midiOutW1.sendNoteOn(4, note,  velocity);
 			hit_wiimote1_4 = true;
-		} else if (e->data[1]->nunchuck->Accel_Z < -1){
+		} else if (e->data[1]->nunchuck->SwingDown == 0 && e->data[1]->nunchuck->Button_Z == 1){
 			hit_wiimote1_4 = false;
 		}
 	}
@@ -335,89 +257,42 @@ void testApp::update() {
 void testApp::draw() {
 	
 	// let's see something
-	ofSetColor(0);
-	stringstream text;
-	text << "connected to port " << midiOutW1.getPort() 
-		<< " \"" << midiOutW1.getName() << "\"" << endl
-		<< "is virtual?: " << midiOutW1.isVirtual() << endl << endl
-		<< "sending to channel " << channel << endl << endl
-		<< "current program: " << currentPgm << endl << endl
-		<< "note: " << note << endl
-		<< "velocity: " << velocity << endl
-		<< "pan: " << pan << endl
-		<< "bend: " << bend << endl
-		<< "touch: " << touch << endl
-		<< "polytouch: " << polytouch << endl
-		<< "wiimote One: " << e->data[1]->wiimote->Button_One << endl
-		<< "wiimote Two: " << e->data[1]->wiimote->Button_Two << endl
-		<< "wiimote Z: " << e->data[1]->wiimote->Accel_Z << endl
-		<< "nunchuk X: " << e->data[1]->nunchuck->Accel_X << endl
-		<< "nunchuk Y: " << e->data[1]->nunchuck->Accel_Y << endl
-		<< "nunchuk Z: " << e->data[1]->nunchuck->Accel_Z << endl
-		
-
-		
-		;
-	ofDrawBitmapString(text.str(), 20, 20);
-	/*
-	//Muestro imagenes
-	/*tambor.resize(200,200);
-	tambor.draw(0,0);
-
-	piano.resize(200,200);
-	piano.draw(200,0);
-
-	flauta.resize(200,200);
-	flauta.draw(600,0);
-
-	guitarra.resize(200,200);
-	guitarra.draw(800,0);*/
-
-	//
-
-	//Mostramos los titulos
-	 
-	ofDrawBitmapString("WiiMote I",20,20);
-	ofDrawBitmapString("WiiMote II",200,20);
-	ofDrawBitmapString("WiiMote III",380,20);
-	ofDrawBitmapString("WiiMote IV",560,20);
+	ofSetColor(255);
 	
-	tambor.resize(50,50);
-	guitarra.resize(50,50);
+	//Mostramos los titulos
+	wiimoteI.draw(20,20);
+	wiimoteII.draw(240,20);
+	wiimoteIII.draw(460,20);
+	wiimoteIV.draw(680,20);
+	
 	
 	//Dibujamos los instrumentos
 	for (int k =0; k < 4; k++) {				
-		tambor.draw(10 + k*180,50);		
-		guitarra.draw(10 +k*180,150);
+		bateria.draw(20 + k*230,100);		
+		flauta.draw(20 + k*230,200);
+		piano.draw(20 +k*230,300);
+		maracas.draw(20 +k*230,400);		
 	}
 	
 
 	int TAMBOR = 1;
 	int	FLAUTA = 2;
-	int	MARACAS = 3;
-	int	PIANO   = 4;
-	int GUITARRA = 5;
+	int	PIANO   = 3;
+	int	MARACAS = 4;
+	
 
-	printf("instrumento seleccionado : %d\n",e->data[1]->instrumento);
-	for ( int i = 1; i < 5; i++) {
-		 
-		if (e->data[i]->instrumento == TAMBOR){			
-			//tambor_selected.draw(10,50);
-			ofDrawBitmapString("Selected tambor!",500,500);
-		} else if (e->data[i]->instrumento == FLAUTA){
-			
-		} else if (e->data[i]->instrumento == MARACAS){
-		
-		} else if (e->data[i]->instrumento == PIANO){
-		
-		} else if (e->data[i]->instrumento == GUITARRA){
-			ofDrawBitmapString("Selected guitarra!",100,100);
-			
+	for ( int i = 0; i < 4; i++) {		 
+		if (e->data[i+1]->instrumento == TAMBOR){			
+			bateria_selected.draw(20 + i*230,100);
+		} else if (e->data[i+1]->instrumento == FLAUTA){
+			flauta_selected.draw(20 + i*230,200);
+		} else if (e->data[i+1]->instrumento == PIANO){
+			piano_selected.draw(20 +i*230,300);
+		} else if (e->data[i+1]->instrumento == MARACAS){
+			maracas_selected.draw(20 +i*230,400);
 		}
-		 
 	}
 
-	
 	
 	
 }
@@ -432,45 +307,12 @@ void testApp::exit() {
 	midiOutW4.closePort();
 }
 
-
-void testApp::enviarNota(int tecla){
-
-	if (!sonar){
-		printf("nota enviada: %d\n",tecla);
-		note = ofMap(tecla, 48, 122, 0, 127);
-		//printf("GHJKLKGKLJnota: "+note);
-		velocity = 64;
-		midiOutW1.sendNoteOn(channel, note,  velocity);
-		sonar = true;
-	}
-}
-
-void testApp::enviarNotaViento(int canal, int tecla){
-
-	if (!sonar){
-		printf("nota enviada: %d\n",tecla);
-		note = ofMap(tecla, 48, 122, 0, 127);
-		//printf("GHJKLKGKLJnota: "+note);
-		velocity = 64;
-		midiOutW1.sendNoteOn(canal, note,  velocity);
-		sonar = true;
-	}
-}
-
 //--------------------------------------------------------------
 void testApp::keyPressed(int key) {
-
 }
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key) {
-	//send a note off if the key is a letter or a number
-	if(isalnum(key)) {
-		note = ofMap(key, 48, 122, 0, 127);
-		velocity = 0;
-		midiOutW1 << NoteOff(channel, note, velocity); // stream interface
-		sonar = false;
-	}
 }
 
 //--------------------------------------------------------------
