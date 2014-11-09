@@ -260,7 +260,17 @@ namespace WiimoteTest
 
 					lblTriggerL.Text = ws.ClassicControllerState.TriggerL.ToString();
 					lblTriggerR.Text = ws.ClassicControllerState.TriggerR.ToString();
-                                        
+                                   
+     
+
+                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Controller/Buttons";
+                    msg = new OscElement(address, Convert.ToInt32(ws.ClassicControllerState.ButtonState.Up), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Right), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Down),
+                                                        Convert.ToInt32(ws.ClassicControllerState.ButtonState.Left), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Minus), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Home),
+                                                        Convert.ToInt32(ws.ClassicControllerState.ButtonState.Plus), Convert.ToInt32(ws.ClassicControllerState.ButtonState.X), Convert.ToInt32(ws.ClassicControllerState.ButtonState.A),
+                                                        Convert.ToInt32(ws.ClassicControllerState.ButtonState.B), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Y), Convert.ToInt32(ws.ClassicControllerState.ButtonState.TriggerL),
+                                                        Convert.ToInt32(ws.ClassicControllerState.ButtonState.ZL), Convert.ToInt32(ws.ClassicControllerState.ButtonState.TriggerR), Convert.ToInt32(ws.ClassicControllerState.ButtonState.ZR));
+                    nw.Send(msg);
+
 					break;
 
                 case ExtensionType.ClassicControllerI:
