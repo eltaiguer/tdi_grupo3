@@ -131,7 +131,7 @@ namespace WiimoteTest
                 hitDownWiimote = false;               
             }
 
-            if (!hitUpWiimote && ws.AccelState.Values.Z <-1 && (pitch >= 60 && pitch <= 180))//&& ws.AccelState.Values.Y > 0)
+            if (!hitUpWiimote && ws.AccelState.Values.Z <-1)//&& ws.AccelState.Values.Y > 0)
             {
                 hitUpWiimote = true;
                 msg = new OscElement(address, 1,0,0,0);
