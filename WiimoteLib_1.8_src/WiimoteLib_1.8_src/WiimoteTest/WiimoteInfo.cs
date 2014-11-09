@@ -21,11 +21,14 @@ namespace WiimoteTest
     {
         #region WiiMusic
 
-        private const string DEST_IP = "127.0.0.1";
+        private const string DEST_IP = "172.16.108.64"; //"127.0.0.1";
         public const int PORT = 12345;
-        private bool hit;
-
+        private bool hitDownWiimote = false;
+        private bool hitDownChuk = false;
+        private bool hitUpWiimote = false;
+        private bool hitUpChuk = false;
         NetWriter nw = new UdpWriter(DEST_IP, PORT);
+        NetWriter nw2 = new UdpWriter("127.0.0.1", 12345);
         OscMessage msg;
         string address = String.Empty;
         double roll=-1;
@@ -79,7 +82,7 @@ namespace WiimoteTest
 
 			clbButtons.SetItemChecked(0, ws.ButtonState.A);
 			clbButtons.SetItemChecked(1, ws.ButtonState.B);
-            clbButtons.SetItemChecked(2, ws.ButtonState.B);
+            clbButtons.SetItemChecked(2, ws.ButtonState.Minus);
 			clbButtons.SetItemChecked(3, ws.ButtonState.Home);
 			clbButtons.SetItemChecked(4, ws.ButtonState.Plus);
 			clbButtons.SetItemChecked(5, ws.ButtonState.One);
@@ -89,8 +92,8 @@ namespace WiimoteTest
 			clbButtons.SetItemChecked(9, ws.ButtonState.Left);
 			clbButtons.SetItemChecked(10, ws.ButtonState.Right);
 
-			lblAccel.Text = ws.AccelState.Values.ToString();
-
+			//lblAccel.Text = ws.AccelState.Values.ToString();
+            
 			chkLED1.Checked = ws.LEDState.LED1;
 			chkLED2.Checked = ws.LEDState.LED2;
 			chkLED3.Checked = ws.LEDState.LED3;
@@ -104,31 +107,44 @@ namespace WiimoteTest
                                                 Convert.ToInt32(ws.ButtonState.Two), Convert.ToInt32(ws.ButtonState.B));
             nw.Send(msg);
 
-            roll = Math.Atan(-ws.AccelState.Values.X / ws.AccelState.Values.Z);
-            roll = (roll * 180) / Math.PI;
+            pitch = Utilities.CalculatePitch(ws.AccelState.Values.Y, ws.AccelState.Values.Z);
+            roll = Utilities.CalculateRoll(ws.AccelState.Values.X, ws.AccelState.Values.Y, ws.AccelState.Values.Z);
 
-            pitch = Math.Atan(ws.AccelState.Values.Y / Math.Sqrt(Math.Pow(ws.AccelState.Values.X, 2) +
-                                                                                  Math.Pow(ws.AccelState.Values.Z, 2)));
-            pitch = pitch = (pitch * 180) / Math.PI;
+           // address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Wiimote/Accel";
+           // msg = new OscElement(address, (float)ws.AccelState.Values.X, (float)ws.AccelState.Values.Y,
+           //                                             (float)ws.AccelState.Values.Z, (float)roll, (float)pitch);
+          //  nw.Send(msg);
 
-            address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Wiimote/Accel";
-            msg = new OscElement(address, (float)ws.AccelState.Values.X, (float)ws.AccelState.Values.Y,
-                                                        (float)ws.AccelState.Values.Z, (float)roll, (float)pitch);
-            nw.Send(msg);
-
+            lblAccel.Text = String.Format("{0:0.##}",ws.AccelState.Values.Z) + "\n Pitch: " + String.Format("{0:0.##}", pitch) + "\n" + "Roll: " + String.Format("{0:0.##}", roll);
 
             address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Wiimote/Gestures";
-            if (!hit && ws.AccelState.Values.Z ==1)
+            
+
+            if (!hitDownWiimote && ws.AccelState.Values.Z > - 1  && (pitch <= 20 && pitch >= -20) )//&& ws.AccelState.Values.Y > 0)
             {               
-                hit = true;
+                hitDownWiimote = true;
+                msg = new OscElement(address, 0,0,1,0);
                 nw.Send(msg);
-
+                
+              //  nw2.Send(msg);
             }
-            else if (ws.AccelState.Values.Z < -1)
+            else if (ws.AccelState.Values.Z <-1)
             {
-                hit = false;
+                hitDownWiimote = false;
+                //msg = new OscElement(address, 0, 0, 0, 0);
+                //nw.Send(msg);
             }
 
+            if (!hitUpWiimote && ws.AccelState.Values.Z <-1 && (pitch >= 60 && pitch <= 180))//&& ws.AccelState.Values.Y > 0)
+            {
+                hitUpWiimote = true;
+               // msg = new OscElement(address, 1,0,0,0);
+               // nw.Send(msg);
+            }
+            else if (ws.AccelState.Values.Z >-1)
+            {
+                hitUpWiimote = false;
+            }           
 
 			switch(ws.ExtensionType)
 			{
@@ -145,17 +161,32 @@ namespace WiimoteTest
                     nw.Send(msg);
 
 
-                    roll = Math.Atan(-ws.NunchukState.AccelState.Values.X / ws.NunchukState.AccelState.Values.Z);
-                    roll = (roll * 180) / Math.PI;
+                    roll = Utilities.CalculateRoll(ws.NunchukState.AccelState.Values.X, ws.NunchukState.AccelState.Values.Y,ws.NunchukState.AccelState.Values.Z);
 
-                    pitch = Math.Atan(ws.NunchukState.AccelState.Values.Y/ Math.Sqrt(Math.Pow(ws.NunchukState.AccelState.Values.X,2) + 
-                                                                                          Math.Pow(ws.NunchukState.AccelState.Values.Z,2)));
-                    pitch = pitch = (pitch * 180) / Math.PI;
+                    pitch = Utilities.CalculatePitch(ws.NunchukState.AccelState.Values.Y, ws.NunchukState.AccelState.Values.Z);
 
-                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
-                    msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
-                                                                (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
-                    nw.Send(msg);
+                  //  address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
+                  //  msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
+                  //                                              (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
+                  //  nw.Send(msg);
+
+                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Gestures";
+                    lblAccel.Text = pitch.ToString();
+                    if (!hitDownChuk && ws.NunchukState.AccelState.Values.Z > -1 && (pitch <= 30 && pitch >= -180))// && ws.NunchukState.AccelState.Values.Y >= 0)//&& ws.AccelState.Values.Y > 0)
+                    {
+                        hitDownChuk = true;
+                        msg = new OscElement(address, 0, 0, 1, 0);
+                       // NetWriter nw2 = new UdpWriter("127.0.0.1", 12345);
+                        nw.Send(msg);
+                    //    nw2.Send(msg);
+
+                    }
+                    else if (ws.NunchukState.AccelState.Values.Z < -1)
+                    {
+                        hitDownChuk = false;
+                        //msg = new OscElement(address, 0, 0, 0, 0);
+                        nw.Send(msg);
+                    }
 
 					break;
 
@@ -172,17 +203,14 @@ namespace WiimoteTest
                     nw.Send(msg);
 
 
-                    roll = Math.Atan(-ws.NunchukState.AccelState.Values.X / ws.NunchukState.AccelState.Values.Z);
-                    roll = (roll * 180) / Math.PI;
+                    roll = Utilities.CalculateRoll(ws.NunchukState.AccelState.Values.X, ws.NunchukState.AccelState.Values.Y,ws.NunchukState.AccelState.Values.Z);
 
-                    pitch = Math.Atan(ws.NunchukState.AccelState.Values.Y/ Math.Sqrt(Math.Pow(ws.NunchukState.AccelState.Values.X,2) + 
-                                                                                          Math.Pow(ws.NunchukState.AccelState.Values.Z,2)));
-                    pitch = pitch = (pitch * 180) / Math.PI;
+                    pitch = Utilities.CalculatePitch(ws.NunchukState.AccelState.Values.Y, ws.NunchukState.AccelState.Values.Z);
 
-                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
-                    msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
-                                                                (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
-                    nw.Send(msg);
+                 //   address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
+                 //   msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
+                 //                                               (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
+                 //   nw.Send(msg);
 
                     break;
 
@@ -393,6 +421,10 @@ namespace WiimoteTest
 		{
 			mWiimote.InitializeMotionPlus();
 		}
+
+
+
+
         
     }
 }

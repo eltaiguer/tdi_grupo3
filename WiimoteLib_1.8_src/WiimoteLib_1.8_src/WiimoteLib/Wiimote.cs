@@ -488,12 +488,19 @@ namespace WiimoteLib
 					mWiimoteState.NunchukState.CalibrationInfo.AccelCalibration.XG = buff[4];
 					mWiimoteState.NunchukState.CalibrationInfo.AccelCalibration.YG = buff[5];
 					mWiimoteState.NunchukState.CalibrationInfo.AccelCalibration.ZG = buff[6];
-					mWiimoteState.NunchukState.CalibrationInfo.MaxX = buff[8];
-					mWiimoteState.NunchukState.CalibrationInfo.MinX = buff[9];
-					mWiimoteState.NunchukState.CalibrationInfo.MidX = buff[10];
-					mWiimoteState.NunchukState.CalibrationInfo.MaxY = buff[11];
-					mWiimoteState.NunchukState.CalibrationInfo.MinY = buff[12];
-					mWiimoteState.NunchukState.CalibrationInfo.MidY = buff[13];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MaxX = buff[8];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MinX = buff[9];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MidX = buff[10];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MaxY = buff[11];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MinY = buff[12];
+                    //mWiimoteState.NunchukState.CalibrationInfo.MidY = buff[13];
+
+                    mWiimoteState.NunchukState.CalibrationInfo.MaxX = 219;
+					mWiimoteState.NunchukState.CalibrationInfo.MinX = 20;
+					mWiimoteState.NunchukState.CalibrationInfo.MidX = 122;
+					mWiimoteState.NunchukState.CalibrationInfo.MaxY = 225;
+					mWiimoteState.NunchukState.CalibrationInfo.MinY = 38;
+					mWiimoteState.NunchukState.CalibrationInfo.MidY = 129;
 					break;
                 case ExtensionType.Nunchuk:
                     buff = ReadData(REGISTER_EXTENSION_CALIBRATION, 16);
