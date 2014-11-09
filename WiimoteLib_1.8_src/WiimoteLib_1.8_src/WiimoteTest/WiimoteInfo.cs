@@ -123,8 +123,8 @@ namespace WiimoteTest
             if (!hitDownWiimote && ws.AccelState.Values.Z > - 1  && (pitch <= 20 && pitch >= -20) )//&& ws.AccelState.Values.Y > 0)
             {               
                 hitDownWiimote = true;
-               // msg = new OscElement(address, 0,0,1,0);
-               // nw.Send(msg);
+                msg = new OscElement(address, 0, 0, 1, 0);
+                nw.Send(msg);
             }
             else if (ws.AccelState.Values.Z <-1)
             {
