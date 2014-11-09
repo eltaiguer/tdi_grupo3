@@ -11,6 +11,15 @@ public:
 
 	//variables para cada instrumento
 	bool sel_right; // para cambiar instrumentos
+	bool sel_up;
+	bool sel_down;
+	bool sel_home;
+
+	bool hit_wiimote1;
+	bool hit_wiimote2;
+	bool hit_wiimote3;
+	bool hit_wiimote4;
+	bool hit_wiimote5;
 
 	WiiData();
 	~WiiData();

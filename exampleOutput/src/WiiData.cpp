@@ -11,7 +11,9 @@ WiiData::WiiData()
 	//4 piano
 
 	sel_right = false;
-
+	sel_up    = false;
+	sel_down  = false;
+	sel_home  = false;
 }
 
 WiiData::~WiiData()
