@@ -809,48 +809,50 @@ namespace WiimoteLib
 	/// <summary>
 	/// The extension plugged into the Wiimote
 	/// </summary>
-	[DataContract]
-	public enum ExtensionType : long
-	{
-		/// <summary>
-		/// No extension
-		/// </summary>
-		None				= 0x000000000000,
-		/// <summary>
-		/// Nunchuk extension
-		/// </summary>
-		Nunchuk				= 0x0000a4200000,
+    [DataContract]
+    public enum ExtensionType : long
+    {
+        /// <summary>
+        /// No extension
+        /// </summary>
+        None = 0x000000000000,
+        /// <summary>
+        /// Nunchuk extension
+        /// </summary>
+        Nunchuk = 0x0000a4200000,
         NunchukI = 0xFF00a4200000,
-		/// <summary>
-		/// Classic Controller extension
-		/// </summary>
-		ClassicController	= 0x0000a4200101,
-		/// <summary>
-		/// Guitar controller from Guitar Hero 3/WorldTour
-		/// </summary>
-		Guitar				= 0x0000a4200103,
-		/// <summary>
-		/// Drum controller from Guitar Hero: World Tour
-		/// </summary>
-		Drums				= 0x0100a4200103,
-		/// <summary>
-		/// Wii Fit Balance Board controller
-		/// </summary>
-		BalanceBoard		= 0x0000a4200402,
-		/// <summary>
-		/// Taiko "TaTaCon" drum controller
-		/// </summary>
-		TaikoDrum			= 0x0000a4200111,
-		/// <summary>
-		/// Wii MotionPlus extension
-		/// </summary>
-		MotionPlusI			= 0x0100a4200405,
-        MotionPlus          = 0x0000a4200405,
-		/// <summary>
-		/// Partially inserted extension.  This is an error condition.
-		/// </summary>
-		ParitallyInserted	= 0xffffffffffff
-	};
+        /// <summary>
+        /// Classic Controller extension
+        /// </summary>
+        ClassicController = 0x0000a4200101,
+        ClassicControllerI = 0x100a4200101, 
+        /// <summary>
+        /// Guitar controller from Guitar Hero 3/WorldTour
+        /// </summary>
+        Guitar = 0x0000a4200103,
+        /// <summary>
+        /// Drum controller from Guitar Hero: World Tour
+        /// </summary>
+        Drums = 0x0100a4200103,
+        /// <summary>
+        /// Wii Fit Balance Board controller
+        /// </summary>
+        BalanceBoard = 0x0000a4200402,
+        /// <summary>
+        /// Taiko "TaTaCon" drum controller
+        /// </summary>
+        TaikoDrum = 0x0000a4200111,
+        /// <summary>
+        /// Wii MotionPlus extension
+        /// </summary>
+        MotionPlusI = 0x0100a4200405,
+        MotionPlus = 0x0000a4200405,
+        /// <summary>
+        /// Partially inserted extension.  This is an error condition.
+        /// </summary>
+        ParitallyInserted = 0xffffffffffff
+        
+    };
 
 	/// <summary>
 	/// The mode of data reported for the IR sensor

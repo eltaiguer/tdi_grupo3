@@ -123,23 +123,19 @@ namespace WiimoteTest
             if (!hitDownWiimote && ws.AccelState.Values.Z > - 1  && (pitch <= 20 && pitch >= -20) )//&& ws.AccelState.Values.Y > 0)
             {               
                 hitDownWiimote = true;
-                msg = new OscElement(address, 0,0,1,0);
-                nw.Send(msg);
-                
-              //  nw2.Send(msg);
+               // msg = new OscElement(address, 0,0,1,0);
+               // nw.Send(msg);
             }
             else if (ws.AccelState.Values.Z <-1)
             {
-                hitDownWiimote = false;
-                //msg = new OscElement(address, 0, 0, 0, 0);
-                //nw.Send(msg);
+                hitDownWiimote = false;               
             }
 
             if (!hitUpWiimote && ws.AccelState.Values.Z <-1 && (pitch >= 60 && pitch <= 180))//&& ws.AccelState.Values.Y > 0)
             {
                 hitUpWiimote = true;
-               // msg = new OscElement(address, 1,0,0,0);
-               // nw.Send(msg);
+                msg = new OscElement(address, 1,0,0,0);
+                nw.Send(msg);
             }
             else if (ws.AccelState.Values.Z >-1)
             {
@@ -171,23 +167,28 @@ namespace WiimoteTest
                   //  nw.Send(msg);
 
                     address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Gestures";
-                    lblAccel.Text = pitch.ToString();
+                    lblAccel.Text = String.Format("{0:0.##}", ws.NunchukState.AccelState.Values.Z) + "\n Pitch: " + String.Format("{0:0.##}", pitch) + "\n" + "Roll: " + String.Format("{0:0.##}", roll);
                     if (!hitDownChuk && ws.NunchukState.AccelState.Values.Z > -1 && (pitch <= 30 && pitch >= -180))// && ws.NunchukState.AccelState.Values.Y >= 0)//&& ws.AccelState.Values.Y > 0)
                     {
                         hitDownChuk = true;
                         msg = new OscElement(address, 0, 0, 1, 0);
-                       // NetWriter nw2 = new UdpWriter("127.0.0.1", 12345);
                         nw.Send(msg);
-                    //    nw2.Send(msg);
-
                     }
                     else if (ws.NunchukState.AccelState.Values.Z < -1)
                     {
                         hitDownChuk = false;
-                        //msg = new OscElement(address, 0, 0, 0, 0);
-                        nw.Send(msg);
                     }
 
+                    if (!hitUpChuk && ws.NunchukState.AccelState.Values.Z < -1 && pitch >= 140)// && pitch <=60)// && pitch>=-20 && pitch>= 190)//&& ws.AccelState.Values.Y > 0)
+                    {
+                        hitUpChuk = true;
+                        msg = new OscElement(address, 1,0,0,0);
+                        nw.Send(msg);
+                    }
+                    else if (ws.AccelState.Values.Z > -1 && pitch<140)
+                    {
+                        hitUpChuk = false;
+                    } 
 					break;
 
                 case ExtensionType.Nunchuk:
@@ -197,7 +198,7 @@ namespace WiimoteTest
                     chkZ.Checked = ws.NunchukState.Z;
 
 
-                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Buttons";
+                                        address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Buttons";
                     msg = new OscElement(address, Convert.ToInt32(ws.NunchukState.C), Convert.ToInt32(ws.NunchukState.Z), 
                                                             (float)ws.NunchukState.Joystick.X, (float) ws.NunchukState.Joystick.Y);
                     nw.Send(msg);
@@ -207,12 +208,35 @@ namespace WiimoteTest
 
                     pitch = Utilities.CalculatePitch(ws.NunchukState.AccelState.Values.Y, ws.NunchukState.AccelState.Values.Z);
 
-                 //   address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
-                 //   msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
-                 //                                               (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
-                 //   nw.Send(msg);
+                  //  address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Accel";
+                  //  msg = new OscElement(address, (float)ws.NunchukState.AccelState.Values.X, (float) ws.NunchukState.AccelState.Values.Y,
+                  //                                              (float)ws.NunchukState.AccelState.Values.Z, (float)roll, (float)pitch);
+                  //  nw.Send(msg);
 
-                    break;
+                    address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Nunchuk/Gestures";
+                    lblAccel.Text = String.Format("{0:0.##}", ws.NunchukState.AccelState.Values.Z) + "\n Pitch: " + String.Format("{0:0.##}", pitch) + "\n" + "Roll: " + String.Format("{0:0.##}", roll);
+                    if (!hitDownChuk && ws.NunchukState.AccelState.Values.Z > -1 && (pitch <= 30 && pitch >= -180))// && ws.NunchukState.AccelState.Values.Y >= 0)//&& ws.AccelState.Values.Y > 0)
+                    {
+                        hitDownChuk = true;
+                        msg = new OscElement(address, 0, 0, 1, 0);
+                        nw.Send(msg);
+                    }
+                    else if (ws.NunchukState.AccelState.Values.Z < -1)
+                    {
+                        hitDownChuk = false;
+                    }
+
+                    if (!hitUpChuk && ws.NunchukState.AccelState.Values.Z < -1 && pitch >= 140)// && pitch <=60)// && pitch>=-20 && pitch>= 190)//&& ws.AccelState.Values.Y > 0)
+                    {
+                        hitUpChuk = true;
+                        msg = new OscElement(address, 1,0,0,0, (float)pitch);
+                        nw.Send(msg);
+                    }
+                    else if (ws.AccelState.Values.Z > -1 && pitch<140)
+                    {
+                        hitUpChuk = false;
+                    } 
+					break;
 
 				case ExtensionType.ClassicController:
 					clbCCButtons.SetItemChecked(0, ws.ClassicControllerState.ButtonState.A);
@@ -239,6 +263,34 @@ namespace WiimoteTest
                                         
 					break;
 
+                case ExtensionType.ClassicControllerI:
+                    clbCCButtons.SetItemChecked(0, ws.ClassicControllerState.ButtonState.A);
+                    clbCCButtons.SetItemChecked(1, ws.ClassicControllerState.ButtonState.B);
+                    clbCCButtons.SetItemChecked(2, ws.ClassicControllerState.ButtonState.X);
+                    clbCCButtons.SetItemChecked(3, ws.ClassicControllerState.ButtonState.Y);
+                    clbCCButtons.SetItemChecked(4, ws.ClassicControllerState.ButtonState.Minus);
+                    clbCCButtons.SetItemChecked(5, ws.ClassicControllerState.ButtonState.Home);
+                    clbCCButtons.SetItemChecked(6, ws.ClassicControllerState.ButtonState.Plus);
+                    clbCCButtons.SetItemChecked(7, ws.ClassicControllerState.ButtonState.Up);
+                    clbCCButtons.SetItemChecked(8, ws.ClassicControllerState.ButtonState.Down);
+                    clbCCButtons.SetItemChecked(9, ws.ClassicControllerState.ButtonState.Left);
+                    clbCCButtons.SetItemChecked(10, ws.ClassicControllerState.ButtonState.Right);
+                    clbCCButtons.SetItemChecked(11, ws.ClassicControllerState.ButtonState.ZL);
+                    clbCCButtons.SetItemChecked(12, ws.ClassicControllerState.ButtonState.ZR);
+                    clbCCButtons.SetItemChecked(13, ws.ClassicControllerState.ButtonState.TriggerL);
+                    clbCCButtons.SetItemChecked(14, ws.ClassicControllerState.ButtonState.TriggerR);
+
+                    lblCCJoy1.Text = ws.ClassicControllerState.JoystickL.ToString();
+                    lblCCJoy2.Text = ws.ClassicControllerState.JoystickR.ToString();
+
+                    //lblCCJoy1.Text = ws.ClassicControllerState.RawJoystickL.ToString();
+                    //lblCCJoy2.Text = ws.ClassicControllerState.RawJoystickR.ToString();
+
+                    lblTriggerL.Text = ws.ClassicControllerState.TriggerL.ToString();
+                    lblTriggerR.Text = ws.ClassicControllerState.TriggerR.ToString();
+
+                    break;
+
 				case ExtensionType.Guitar:
 				    clbGuitarButtons.SetItemChecked(0, ws.GuitarState.FretButtonState.Green);
 				    clbGuitarButtons.SetItemChecked(1, ws.GuitarState.FretButtonState.Red);
@@ -260,6 +312,8 @@ namespace WiimoteTest
 					lblGuitarWhammy.Text = ws.GuitarState.WhammyBar.ToString();
 					lblGuitarType.Text = ws.GuitarState.GuitarType.ToString();
 				    break;
+
+
 
 				case ExtensionType.Drums:
 					clbDrums.SetItemChecked(0, ws.DrumsState.Red);
@@ -315,10 +369,6 @@ namespace WiimoteTest
 					clbSpeed.SetItemChecked(1, ws.MotionPlusState.PitchFast);
 					clbSpeed.SetItemChecked(2, ws.MotionPlusState.RollFast);
 
-                    //lblChuk.Text = ws.NunchukState.AccelState.Values.ToString();
-                    //lblChukJoy.Text = ws.NunchukState.Joystick.ToString();
-                    //chkC.Checked = ws.NunchukState.C;
-                    //chkZ.Checked = ws.NunchukState.Z;
 					break;
 
                 case ExtensionType.MotionPlus:
@@ -327,10 +377,6 @@ namespace WiimoteTest
                     clbSpeed.SetItemChecked(1, ws.MotionPlusState.PitchFast);
                     clbSpeed.SetItemChecked(2, ws.MotionPlusState.RollFast);
 
-                    //lblChuk.Text = ws.NunchukState.AccelState.Values.ToString();
-                    //lblChukJoy.Text = ws.NunchukState.Joystick.ToString();
-                    //chkC.Checked = ws.NunchukState.C;
-                    //chkZ.Checked = ws.NunchukState.Z;
                     break;
 			}
 

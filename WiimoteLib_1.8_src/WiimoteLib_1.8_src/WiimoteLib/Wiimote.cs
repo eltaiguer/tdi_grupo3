@@ -460,6 +460,7 @@ namespace WiimoteLib
 				case ExtensionType.NunchukI:
                 case ExtensionType.Nunchuk:
 				case ExtensionType.ClassicController:
+                case ExtensionType.ClassicControllerI:    
 				case ExtensionType.Guitar:
 				case ExtensionType.BalanceBoard:
 				case ExtensionType.Drums:
@@ -545,6 +546,34 @@ namespace WiimoteLib
 					mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerR = 0;
 					mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerR = 31;
 					break;
+
+                case ExtensionType.ClassicControllerI:
+                    buff = ReadData(REGISTER_EXTENSION_CALIBRATION, 16);
+
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxXL = (byte)(buff[0] >> 2);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinXL = (byte)(buff[1] >> 2);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MidXL = (byte)(buff[2] >> 2);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxYL = (byte)(buff[3] >> 2);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinYL = (byte)(buff[4] >> 2);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MidYL = (byte)(buff[5] >> 2);
+
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxXR = (byte)(buff[6] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinXR = (byte)(buff[7] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MidXR = (byte)(buff[8] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxYR = (byte)(buff[9] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinYR = (byte)(buff[10] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MidYR = (byte)(buff[11] >> 3);
+
+                    // this doesn't seem right...
+                    //					mWiimoteState.ClassicControllerState.AccelCalibrationInfo.MinTriggerL = (byte)(buff[12] >> 3);
+                    //					mWiimoteState.ClassicControllerState.AccelCalibrationInfo.MaxTriggerL = (byte)(buff[14] >> 3);
+                    //					mWiimoteState.ClassicControllerState.AccelCalibrationInfo.MinTriggerR = (byte)(buff[13] >> 3);
+                    //					mWiimoteState.ClassicControllerState.AccelCalibrationInfo.MaxTriggerR = (byte)(buff[15] >> 3);
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerL = 0;
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerL = 31;
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerR = 0;
+                    mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerR = 31;
+                    break;
 				case ExtensionType.BalanceBoard:
 					buff = ReadData(REGISTER_EXTENSION_CALIBRATION, 32);
 
@@ -813,7 +842,56 @@ namespace WiimoteLib
 						mWiimoteState.ClassicControllerState.TriggerR = (mWiimoteState.ClassicControllerState.RawTriggerR) / 
 						(float)(mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerR - mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerR);
 					break;
+                case ExtensionType.ClassicControllerI:
+                    mWiimoteState.ClassicControllerState.RawJoystickL.X = (byte)(buff[offset] & 0x3f);
+                    mWiimoteState.ClassicControllerState.RawJoystickL.Y = (byte)(buff[offset + 1] & 0x3f);
+                    mWiimoteState.ClassicControllerState.RawJoystickR.X = (byte)((buff[offset + 2] >> 7) | (buff[offset + 1] & 0xc0) >> 5 | (buff[offset] & 0xc0) >> 3);
+                    mWiimoteState.ClassicControllerState.RawJoystickR.Y = (byte)(buff[offset + 2] & 0x1f);
 
+                    mWiimoteState.ClassicControllerState.RawTriggerL = (byte)(((buff[offset + 2] & 0x60) >> 2) | (buff[offset + 3] >> 5));
+                    mWiimoteState.ClassicControllerState.RawTriggerR = (byte)(buff[offset + 3] & 0x1f);
+
+                    mWiimoteState.ClassicControllerState.ButtonState.TriggerR = (buff[offset + 4] & 0x02) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Plus = (buff[offset + 4] & 0x04) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Home = (buff[offset + 4] & 0x08) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Minus = (buff[offset + 4] & 0x10) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.TriggerL = (buff[offset + 4] & 0x20) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Down = (buff[offset + 4] & 0x40) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Right = (buff[offset + 4] & 0x80) == 0;
+
+                    mWiimoteState.ClassicControllerState.ButtonState.Up = (buff[offset + 5] & 0x01) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Left = (buff[offset + 5] & 0x02) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.ZR = (buff[offset + 5] & 0x04) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.X = (buff[offset + 5] & 0x08) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.A = (buff[offset + 5] & 0x10) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.Y = (buff[offset + 5] & 0x20) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.B = (buff[offset + 5] & 0x40) == 0;
+                    mWiimoteState.ClassicControllerState.ButtonState.ZL = (buff[offset + 5] & 0x80) == 0;
+
+                   // if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxXL != 0x00)
+                        mWiimoteState.ClassicControllerState.JoystickL.X = (float)((float)mWiimoteState.ClassicControllerState.RawJoystickL.X - 30) /
+                        (float)(59 - 5);
+
+                 //   if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxYL != 0x00)
+                        mWiimoteState.ClassicControllerState.JoystickL.Y = (float)((float)mWiimoteState.ClassicControllerState.RawJoystickL.Y - 31) /
+                        (float)(56 - 4);
+
+                 //   if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxXR != 0x00)
+                        mWiimoteState.ClassicControllerState.JoystickR.X = (float)((float)mWiimoteState.ClassicControllerState.RawJoystickR.X - 15) /
+                        (float)(29 - 2);
+
+                //    if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxYR != 0x00)
+                        mWiimoteState.ClassicControllerState.JoystickR.Y = (float)((float)mWiimoteState.ClassicControllerState.RawJoystickR.Y - 15) /
+                        (float)(29 - 2);
+
+                 //   if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerL != 0x00)
+                        mWiimoteState.ClassicControllerState.TriggerL = (mWiimoteState.ClassicControllerState.RawTriggerL) /
+                        (float)(mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerL - mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerL);
+
+                //    if (mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerR != 0x00)
+                        mWiimoteState.ClassicControllerState.TriggerR = (mWiimoteState.ClassicControllerState.RawTriggerR) /
+                        (float)(mWiimoteState.ClassicControllerState.CalibrationInfo.MaxTriggerR - mWiimoteState.ClassicControllerState.CalibrationInfo.MinTriggerR);
+                    break;
 				case ExtensionType.Guitar:
 					mWiimoteState.GuitarState.GuitarType = ((buff[offset] & 0x80) == 0) ? GuitarType.GuitarHeroWorldTour : GuitarType.GuitarHero3;
 
