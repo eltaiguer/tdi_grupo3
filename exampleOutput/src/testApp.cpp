@@ -352,7 +352,7 @@ void testApp::update() {
 				}
 				if (!e->data[i]->hit_wiimote2 && e->data[i]->wiimote->SwingUp == 1){ // MARACA HACIA ARRIBA
 					note = ofMap('W', 48, 122, 0, 127);
-					midiOutW4.sendNoteOn(2, note,  velocity);
+					midiOutW4.sendNoteOn(1, note,  velocity);
 					e->data[i]->hit_wiimote2 = true;
 					e->data[i]->wiimote->SwingUp = 0;
 				} else if (e->data[i]->wiimote->SwingUp == 0){
@@ -360,7 +360,7 @@ void testApp::update() {
 				}
 				if (!e->data[i]->hit_wiimote1 && e->data[i]->nunchuck->SwingDown == 1){ // MARACA HACIA ABAJO
 					note = ofMap('W', 48, 122, 0, 127);
-					midiOutW4.sendNoteOn(3, note,  velocity);
+					midiOutW4.sendNoteOn(1, note,  velocity);
 					e->data[i]->hit_wiimote1 = true;
 					e->data[i]->nunchuck->SwingDown = 0;
 				} else if (e->data[i]->nunchuck->SwingDown == 0){
@@ -368,7 +368,7 @@ void testApp::update() {
 				}
 				if (!e->data[i]->hit_wiimote2 && e->data[i]->nunchuck->SwingUp == 1){ // MARACA HACIA ARRIBA
 					note = ofMap('W', 48, 122, 0, 127);
-					midiOutW4.sendNoteOn(4, note,  velocity);
+					midiOutW4.sendNoteOn(1, note,  velocity);
 					e->data[i]->hit_wiimote2 = true;
 					e->data[i]->nunchuck->SwingUp = 0;
 				} else if (e->data[i]->nunchuck->SwingUp == 0){
