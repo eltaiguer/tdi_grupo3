@@ -8,12 +8,15 @@ public:
 	Wiimote* wiimote;
 	Nunchuck* nunchuck;
 	int instrumento;
+	bool tipo_instrumento;
 
 	//variables para cada instrumento
-	bool sel_right; // para cambiar instrumentos
+	//bool sel_right; // para cambiar instrumentos
 	bool sel_up;
 	bool sel_down;
 	bool sel_home;
+
+	bool sel_tipo;
 
 	bool hit_wiimote1;
 	bool hit_wiimote2;
