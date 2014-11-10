@@ -1,12 +1,13 @@
 #include "Wiimote.h"
 #include "Nunchuk.h"
-
+#include "Controller.h"
 
 
 class WiiData{
 public:
 	Wiimote* wiimote;
 	Nunchuck* nunchuck;
+	Controller* controller;
 	int instrumento;
 	bool tipo_instrumento;
 

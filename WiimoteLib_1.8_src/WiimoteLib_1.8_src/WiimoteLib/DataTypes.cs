@@ -825,7 +825,7 @@ namespace WiimoteLib
         /// Classic Controller extension
         /// </summary>
         ClassicController = 0x0000a4200101,
-        ClassicControllerI = 0x100a4200101, 
+        ClassicControllerI = 0x0100a4200101, 
         /// <summary>
         /// Guitar controller from Guitar Hero 3/WorldTour
         /// </summary>

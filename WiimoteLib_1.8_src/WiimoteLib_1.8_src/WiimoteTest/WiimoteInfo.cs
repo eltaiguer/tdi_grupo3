@@ -9,6 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -33,6 +34,9 @@ namespace WiimoteTest
         string address = String.Empty;
         double roll=-1;
         double pitch=-1;
+
+        List<bool> controller =  new List<bool>();
+        List<bool> controllerAux = new List<bool>();
         #endregion
 
         #region wiimote lib
@@ -299,6 +303,76 @@ namespace WiimoteTest
                     lblTriggerL.Text = ws.ClassicControllerState.TriggerL.ToString();
                     lblTriggerR.Text = ws.ClassicControllerState.TriggerR.ToString();
 
+                    bool diff = false;
+
+                    if (controller.Count == 0)
+                    {
+                        diff = true;
+                        controller.Add(ws.ClassicControllerState.ButtonState.Up);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Right);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Down);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Left);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Minus);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Home);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Plus);
+                        controller.Add(ws.ClassicControllerState.ButtonState.X);
+                        controller.Add(ws.ClassicControllerState.ButtonState.A);
+                        controller.Add(ws.ClassicControllerState.ButtonState.B);
+                        controller.Add(ws.ClassicControllerState.ButtonState.Y);
+                        controller.Add(ws.ClassicControllerState.ButtonState.TriggerL);
+                        controller.Add(ws.ClassicControllerState.ButtonState.ZL);
+                        controller.Add(ws.ClassicControllerState.ButtonState.TriggerR);
+                        controller.Add(ws.ClassicControllerState.ButtonState.ZR);
+                    }
+                    else
+                    {
+                        controllerAux.Clear();
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Up);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Right);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Down);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Left);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Minus);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Home);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Plus);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.X);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.A);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.B);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.Y);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.TriggerL);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.ZL);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.TriggerR);
+                        controllerAux.Add(ws.ClassicControllerState.ButtonState.ZR);
+
+                        int iter = 0;
+                        while (iter < controller.Count && !diff)
+                        {
+                            diff = (controller[iter] != controllerAux[iter]);
+                            iter++;
+                        }
+
+                        if (diff)
+                        {
+                           // controller.Clear();
+                            int i=0;
+                            foreach (bool buttonData in controllerAux)
+                            {
+                                controller[i] = buttonData;
+                                i++;
+                            }
+                          //  controller = controllerAux;
+                        }
+                    }
+   
+                    if (diff)
+                    {                        
+                        address = "/Brian/" + MultipleWiimoteForm.wiimoteIdMap[mWiimote.ID] + "/Controller/Buttons";
+                        msg = new OscElement(address, Convert.ToInt32(ws.ClassicControllerState.ButtonState.Up), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Right), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Down),
+                                                            Convert.ToInt32(ws.ClassicControllerState.ButtonState.Left), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Minus), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Home),
+                                                            Convert.ToInt32(ws.ClassicControllerState.ButtonState.Plus), Convert.ToInt32(ws.ClassicControllerState.ButtonState.X), Convert.ToInt32(ws.ClassicControllerState.ButtonState.A),
+                                                            Convert.ToInt32(ws.ClassicControllerState.ButtonState.B), Convert.ToInt32(ws.ClassicControllerState.ButtonState.Y), Convert.ToInt32(ws.ClassicControllerState.ButtonState.TriggerL),
+                                                            Convert.ToInt32(ws.ClassicControllerState.ButtonState.ZL), Convert.ToInt32(ws.ClassicControllerState.ButtonState.TriggerR), Convert.ToInt32(ws.ClassicControllerState.ButtonState.ZR));
+                        nw.Send(msg);
+                    }
                     break;
 
 				case ExtensionType.Guitar:
