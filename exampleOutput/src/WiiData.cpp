@@ -4,6 +4,7 @@ WiiData::WiiData()
 {
 	wiimote = new Wiimote();
 	nunchuck = new Nunchuck();
+	controller = new Controller();
 	instrumento = 1;
 	tipo_instrumento = true;
 	//1 bateria
@@ -23,4 +24,5 @@ WiiData::~WiiData()
 {
 	delete(wiimote);
 	delete(nunchuck);
+	delete(controller);
 }

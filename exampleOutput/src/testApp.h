@@ -55,4 +55,38 @@ public:
 	ofImage wiimoteI,wiimoteII,wiimoteIII,wiimoteIV,bateria,bateria_selected,piano,maracas,maracas_selected,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected;
 	ofImage sel_inst, camb_inst, conf_inst;
 	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
+	
+	//piano
+	// arreglo de notas de escala
+	int octaves[12];
+	int cNote ;
+	int cSharpNote;
+	int dNote;
+	int dSharpNote;
+	int eNote;
+	int fNote;
+	int fSharpNote;
+	int gNote;
+	int gSharpNote;
+	int aNote;
+	int aSharpNote;
+	int bNote;
+	int octave;
+
+	bool buttonUpSent;
+	bool buttonASent;
+	bool buttonBSent;
+	bool buttonDownSent;
+	bool buttonLeftSent;
+	bool buttonRightSent;
+	bool buttonRSent;
+	bool buttonLSent;
+	bool buttonXSent;
+	bool buttonYSent;
+	bool buttonZLSent;
+	bool buttonZRSent;
+
+	bool buttonMinusSent;
+	bool buttonPlusSent;
+	
 };

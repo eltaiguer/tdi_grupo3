@@ -38,6 +38,43 @@ void testApp::setup() {
 
 	sonar = false;
 	
+	// cosas para el piano
+	for (int i=0; i<12;i++){
+		octaves[i]=i*12;
+	}
+
+	cNote = 0;
+	cSharpNote = 1;
+	dNote = 2;
+	dSharpNote = 3;
+	eNote = 4;
+	fNote = 5;
+	fSharpNote = 6;
+	gNote = 7;
+	gSharpNote = 8;
+	aNote = 9;
+	aSharpNote = 10;
+	bNote = 11;
+	octave= 5;
+
+	buttonUpSent = false;
+	buttonASent = false;
+	buttonBSent = false;
+	buttonDownSent = false;
+	buttonLeftSent = false;
+	buttonRightSent = false;
+	buttonRSent = false;
+	buttonLSent = false;
+	buttonXSent = false;
+	buttonYSent = false;
+	buttonZLSent = false;
+	buttonZRSent = false;
+
+	buttonMinusSent = false;
+	buttonPlusSent =false;
+	
+	
+	
 	cout << "listening for osc messages on port " << PORT << "\n";
 	receiver.setup(PORT);
 
@@ -138,6 +175,26 @@ void testApp::update() {
 				dirEncontrada = true;
 			}
 
+			if (m.getAddress()=="/Brian/"+str_indice_remote+"/Controller/Buttons"){
+				e->data[indice_remote]->controller->Button_Up = m.getArgAsInt32(0);
+				e->data[indice_remote]->controller->Button_Right = m.getArgAsInt32(1);
+				e->data[indice_remote]->controller->Button_Down = m.getArgAsInt32(2);
+				e->data[indice_remote]->controller->Button_Left = m.getArgAsInt32(3);
+				e->data[indice_remote]->controller->Button_Minus = m.getArgAsInt32(4);
+				e->data[indice_remote]->controller->Button_Home = m.getArgAsInt32(5);
+				e->data[indice_remote]->controller->Button_Plus = m.getArgAsInt32(6);
+				e->data[indice_remote]->controller->Button_X = m.getArgAsInt32(7);
+				e->data[indice_remote]->controller->Button_A = m.getArgAsInt32(8);
+				e->data[indice_remote]->controller->Button_B = m.getArgAsInt32(9);
+				e->data[indice_remote]->controller->Button_Y = m.getArgAsInt32(10);
+				e->data[indice_remote]->controller->Button_L = m.getArgAsInt32(11);
+				e->data[indice_remote]->controller->Button_ZL = m.getArgAsInt32(12);
+				e->data[indice_remote]->controller->Button_R = m.getArgAsInt32(13);
+				e->data[indice_remote]->controller->Button_ZR = m.getArgAsInt32(14);
+
+				dirEncontrada = true;
+			}
+			
 			indice_remote++;
 		}
 	}
@@ -338,6 +395,178 @@ void testApp::update() {
 					e->data[i]->hit_wiimote2 = false;
 				}
 
+			}
+			
+			
+			// TECLADO
+			if (e->data[i]->instrumento == 3){
+
+				if (!buttonUpSent && e->data[i]->controller->Button_Up == 1){
+					printf("UP %d\n", octaves[octave] + cNote);
+					note = ofMap(octaves[5] + cNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonUpSent=true;
+				}
+				else if(e->data[i]->controller->Button_Up == 0){
+					note = ofMap(octaves[5] + cNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonUpSent = false;
+				}
+
+				if (!buttonRightSent && e->data[i]->controller->Button_Right == 1){
+					printf("RIGHT %d\n", octaves[octave] + cSharpNote);
+					note = ofMap(octaves[octave] + cSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonRightSent = true;
+				}
+				else if(e->data[i]->controller->Button_Right == 0){
+					note = ofMap(octaves[octave] + cSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonRightSent = false;
+				}
+
+				if (!buttonDownSent && e->data[i]->controller->Button_Down == 1){
+					printf("DOWN %d\n", octaves[octave] + dNote);
+					note = ofMap(octaves[octave] + dNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonDownSent = true;
+				}
+				else if(e->data[i]->controller->Button_Down == 0){
+					note = ofMap(octaves[octave] + dNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonDownSent = false;
+				}
+
+				if (!buttonLeftSent && e->data[i]->controller->Button_Left == 1){
+					printf("LEFT %d\n", octaves[octave] + dSharpNote);
+					note = ofMap(octaves[octave] + dSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonLeftSent = true;
+				}
+				else if(e->data[i]->controller->Button_Left == 0){
+					note = ofMap(octaves[octave] + dSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonLeftSent = false;
+				}
+
+				if (!buttonLSent && e->data[i]->controller->Button_L == 1){
+					printf("L %d\n", octaves[octave] + eNote);
+					note = ofMap(octaves[octave] + eNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonLSent = true;
+				}
+				else if(e->data[i]->controller->Button_L == 0){
+					note = ofMap(octaves[octave] + eNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonLSent = false;
+				}
+
+				if (!buttonZLSent && e->data[i]->controller->Button_ZL == 1){
+					printf("ZL %d\n", octaves[octave] + fNote);
+					note = ofMap(octaves[octave] + fNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonZLSent = true;
+				}
+				else if(e->data[i]->controller->Button_ZL == 0){
+					note = ofMap(octaves[octave] + fNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonZLSent = false;
+				}
+
+				if (!buttonZRSent && e->data[i]->controller->Button_ZR == 1){
+					printf("ZR %d\n", octaves[octave] + fSharpNote);
+					note = ofMap(octaves[octave] + fSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonZRSent = true;
+				}
+				else if(e->data[i]->controller->Button_ZR == 0){
+					note = ofMap(octaves[octave] + fSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonZRSent = false;
+				}
+
+				if (!buttonRSent && e->data[i]->controller->Button_R == 1){
+					printf("R %d\n", octaves[octave] + gNote);
+					note = ofMap(octaves[octave] + gNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonRSent=true;
+				}
+				else if(e->data[i]->controller->Button_R == 0){
+					note = ofMap(octaves[octave] + gNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonRSent = false;
+				}
+
+				if (!buttonXSent && e->data[i]->controller->Button_X == 1){
+					printf("X %d\n", octaves[octave] + gSharpNote);
+					note = ofMap(octaves[octave] + gSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonXSent = true;
+				}
+				else if(e->data[i]->controller->Button_X == 0){
+					note = ofMap(octaves[octave] + gSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonXSent = false;
+				}
+
+				if (!buttonASent && e->data[i]->controller->Button_A == 1){
+					printf("A %d\n", octaves[octave] + aNote);
+					note = ofMap(octaves[octave] + aNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonASent = true;
+				}
+				else if(e->data[i]->controller->Button_A == 0){
+					note = ofMap(octaves[octave] + aNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonASent = false;
+				}
+
+				if (!buttonBSent && e->data[i]->controller->Button_B == 1){
+					printf("B %d\n", octaves[octave] + aSharpNote);
+					note = ofMap(octaves[octave] + aSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonBSent = true;
+				}
+				else if(e->data[i]->controller->Button_B == 0){
+					note = ofMap(octaves[octave] + aSharpNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonBSent = false;
+				}
+
+				if (!buttonYSent && e->data[i]->controller->Button_Y == 1){
+					printf("Y %d\n", octaves[octave] + bNote);
+					note = ofMap(octaves[octave] + bNote,48,122,0,127);
+					midiOutW3.sendNoteOn(1,note,velocity);
+					buttonYSent = true;
+				}
+				else if(e->data[i]->controller->Button_Y == 0){
+					note = ofMap(octaves[octave] + bNote,48,122,0,127);
+					midiOutW3.sendNoteOff(1,note,velocity);
+					buttonYSent = false;
+				}
+
+				if (!buttonPlusSent && e->data[i]->controller->Button_Plus){
+					if (octave<11){
+						octave++;
+						printf("OCTAVA %d \n", octave);
+
+					}
+					buttonPlusSent = true;
+				}
+				else if(!e->data[i]->controller->Button_Plus){
+					buttonPlusSent = false;
+				}
+
+				if (!buttonMinusSent && e->data[i]->controller->Button_Minus){
+					if (octave>0){
+						octave--;
+						printf("OCTAVA %d\n", octave);
+					}
+					buttonMinusSent = true;
+				}
+				else if(!e->data[i]->controller->Button_Minus){
+					buttonMinusSent = false;
+				}
 			}
 			
 		}
