@@ -58,11 +58,13 @@ void testApp::setup() {
 	bateria_selected.loadImage("bateria_selected.png");
 	flauta.loadImage("flauta.png");
 	flauta_selected.loadImage("flauta_selected.png");
+	piccolo.loadImage("piccolo.png");
+	piccolo_selected.loadImage("piccolo_selected.png");
 
 	// Instrucciones
-	//sel_inst.loadImage("seleccionar-instrumento.png");
-	//camb_inst.loadImage("cambiar-instrumento.png");
-	//conf_inst.loadImage("confirmar-instrumento.png");
+	sel_inst.loadImage("seleccionar-instrumento.png");
+	camb_inst.loadImage("cambiar-instrumento.png");
+	conf_inst.loadImage("confirmar-instrumento.png");
 }
 
 //--------------------------------------------------------------
@@ -201,105 +203,83 @@ void testApp::update() {
 
 			if (e->data[i]->instrumento == 2){ // Instrumento Viento seleccionada
 
+				int canal = 1;
 				if (e->data[i]->tipo_instrumento){
-					note = ofMap('G', 48, 122, 0, 127);
-					if (!e->data[i]->hit_wiimote1 && e->data[i]->wiimote->Button_Up == 1){
-						midiOutW2.sendNoteOn(1, note,  velocity);
-						e->data[i]->hit_wiimote1 = true;
-					} else if (e->data[i]->wiimote->Button_Up == 0){
-						e->data[i]->hit_wiimote1 = false;
-						midiOutW2 << NoteOff(1, note, velocity);
-					}
-
-					note = ofMap('H', 48, 122, 0, 127);
-					if (!e->data[i]->hit_wiimote2 && e->data[i]->wiimote->Button_Down == 1){
-						midiOutW2.sendNoteOn(2, note,  velocity);
-						e->data[i]->hit_wiimote2 = true;
-					} else if (e->data[i]->wiimote->Button_Down == 0){
-						e->data[i]->hit_wiimote2 = false;
-						midiOutW2 << NoteOff(2, note, velocity);
-					}
-		
-					note = ofMap('J', 48, 122, 0, 127);
-					if (!e->data[i]->hit_wiimote3 && e->data[i]->wiimote->Button_A == 1){
-						midiOutW2.sendNoteOn(3, note,  velocity);
-						e->data[i]->hit_wiimote3 = true;
-					} else if (e->data[i]->wiimote->Button_A == 0){
-						e->data[i]->hit_wiimote3 = false;
-						midiOutW2 << NoteOff(3, note, velocity);
-
-					}
-		
-					note = ofMap('K', 48, 122, 0, 127);
-					if (!e->data[i]->hit_wiimote4 && e->data[i]->wiimote->Button_One == 1){
-						midiOutW2.sendNoteOn(4, note,  velocity);
-						e->data[i]->hit_wiimote4 = true;
-					} else if (e->data[i]->wiimote->Button_One == 0){
-						e->data[i]->hit_wiimote4 = false;
-						midiOutW2 << NoteOff(4, note, velocity);
-					}
-
-					note = ofMap('L', 48, 122, 0, 127);
-					if (!e->data[i]->hit_wiimote5 && e->data[i]->wiimote->Button_Two == 1){
-						midiOutW2.sendNoteOn(5, note,  velocity);
-						e->data[i]->hit_wiimote5 = true;
-					} else if (e->data[i]->wiimote->Button_Two == 0){
-						e->data[i]->hit_wiimote5 = false;
-						midiOutW2 << NoteOff(5, note, velocity);
-					}
-				} else if (!e->data[i]->tipo_instrumento){
-
-					note = ofMap('G', 48, 122, 0, 127);
-					note = 90;
-					if (!e->data[i]->hit_wiimote1 && e->data[i]->wiimote->Button_Up == 1){
-						midiOutW2.sendNoteOn(6, note,  velocity);
-						e->data[i]->hit_wiimote1 = true;
-					} else if (e->data[i]->wiimote->Button_Up == 0){
-						e->data[i]->hit_wiimote1 = false;
-						midiOutW2 << NoteOff(6, note, velocity);
-					}
-
-					note = ofMap('H', 48, 122, 0, 127);
-					note = 85;
-					if (!e->data[i]->hit_wiimote2 && e->data[i]->wiimote->Button_Down == 1){
-						midiOutW2.sendNoteOn(7, note,  velocity);
-						e->data[i]->hit_wiimote2 = true;
-					} else if (e->data[i]->wiimote->Button_Down == 0){
-						e->data[i]->hit_wiimote2 = false;
-						midiOutW2 << NoteOff(7, note, velocity);
-					}
-		
-					note = ofMap('J', 48, 122, 0, 127);
-					note = 80;
-					if (!e->data[i]->hit_wiimote3 && e->data[i]->wiimote->Button_A == 1){
-						midiOutW2.sendNoteOn(8, note,  velocity);
-						e->data[i]->hit_wiimote3 = true;
-					} else if (e->data[i]->wiimote->Button_A == 0){
-						e->data[i]->hit_wiimote3 = false;
-						midiOutW2 << NoteOff(8, note, velocity);
-
-					}
-		
-					note = ofMap('K', 48, 122, 0, 127);
-					note = 75;
-					if (!e->data[i]->hit_wiimote4 && e->data[i]->wiimote->Button_One == 1){
-						midiOutW2.sendNoteOn(9, note,  velocity);
-						e->data[i]->hit_wiimote4 = true;
-					} else if (e->data[i]->wiimote->Button_One == 0){
-						e->data[i]->hit_wiimote4 = false;
-						midiOutW2 << NoteOff(9, note, velocity);
-					}
-
-					note = ofMap('a', 48, 122, 0, 127);
+					note = 50;
+					canal = 1;
+				}else{
 					note = 70;
-					if (!e->data[i]->hit_wiimote5 && e->data[i]->wiimote->Button_Two == 1){
-						midiOutW2.sendNoteOn(10, note,  velocity);
-						e->data[i]->hit_wiimote5 = true;
-					} else if (e->data[i]->wiimote->Button_Two == 0){
-						e->data[i]->hit_wiimote5 = false;
-						midiOutW2 << NoteOff(10, note, velocity);
-					}
+					canal = 2;
 				}
+
+				if (!e->data[i]->hit_wiimote1 && e->data[i]->wiimote->Button_Up == 1){
+					midiOutW2.sendNoteOn(canal, note,  velocity);
+					e->data[i]->hit_wiimote1 = true;
+				} else if (e->data[i]->wiimote->Button_Up == 0){
+					e->data[i]->hit_wiimote1 = false;
+					midiOutW2 << NoteOff(canal, note, velocity);
+				}
+
+				if (e->data[i]->tipo_instrumento){
+					note = 55;
+					canal = 1;
+				}else{
+					note = 75;
+					canal = 2;
+				}
+				if (!e->data[i]->hit_wiimote2 && e->data[i]->wiimote->Button_Down == 1){
+					midiOutW2.sendNoteOn(canal, note,  velocity);
+					e->data[i]->hit_wiimote2 = true;
+				} else if (e->data[i]->wiimote->Button_Down == 0){
+					e->data[i]->hit_wiimote2 = false;
+					midiOutW2 << NoteOff(canal, note, velocity);
+				}
+		
+				if (e->data[i]->tipo_instrumento){
+					note = 60;
+					canal = 1;
+				}else{
+					note = 80;
+					canal = 2;
+				}
+				if (!e->data[i]->hit_wiimote3 && e->data[i]->wiimote->Button_A == 1){
+					midiOutW2.sendNoteOn(canal, note,  velocity);
+					e->data[i]->hit_wiimote3 = true;
+				} else if (e->data[i]->wiimote->Button_A == 0){
+					e->data[i]->hit_wiimote3 = false;
+					midiOutW2 << NoteOff(canal, note, velocity);
+				}
+		
+				if (e->data[i]->tipo_instrumento){
+					note = 65;
+					canal = 1;
+				}else{
+					note = 85;
+					canal = 2;
+				}
+				if (!e->data[i]->hit_wiimote4 && e->data[i]->wiimote->Button_One == 1){
+					midiOutW2.sendNoteOn(canal, note,  velocity);
+					e->data[i]->hit_wiimote4 = true;
+				} else if (e->data[i]->wiimote->Button_One == 0){
+					e->data[i]->hit_wiimote4 = false;
+					midiOutW2 << NoteOff(canal, note, velocity);
+				}
+
+				if (e->data[i]->tipo_instrumento){
+					note = 70;
+					canal = 1;
+				}else{
+					note = 90;
+					canal = 2;
+				}
+				if (!e->data[i]->hit_wiimote5 && e->data[i]->wiimote->Button_Two == 1){
+					midiOutW2.sendNoteOn(canal, note,  velocity);
+					e->data[i]->hit_wiimote5 = true;
+				} else if (e->data[i]->wiimote->Button_Two == 0){
+					e->data[i]->hit_wiimote5 = false;
+					midiOutW2 << NoteOff(canal, note, velocity);
+				}
+
 			}
 
 			// **** MARACAS ****
@@ -402,7 +382,7 @@ void testApp::draw() {
 	wiimoteII.draw(240,20);
 	wiimoteIII.draw(460,20);
 	wiimoteIV.draw(680,20);
-	
+
 	
 	//Dibujamos los instrumentos
 	for (int k =0; k < 4; k++) {				
@@ -423,7 +403,10 @@ void testApp::draw() {
 		if (e->data[i+1]->instrumento == TAMBOR){			
 			bateria_selected.draw(20 + i*230,100);
 		} else if (e->data[i+1]->instrumento == FLAUTA){
-			flauta_selected.draw(20 + i*230,200);
+			if (e->data[i+1]->tipo_instrumento)
+				flauta_selected.draw(20 + i*230,200);
+			else 
+				piccolo_selected.draw(20 + i*230,200);
 		} else if (e->data[i+1]->instrumento == PIANO){
 			piano_selected.draw(20 +i*230,300);
 		} else if (e->data[i+1]->instrumento == MARACAS){
@@ -432,16 +415,14 @@ void testApp::draw() {
 	}
 
 
-	
-	ofSetColor(ofColor(115,77,0));
-	ofDrawBitmapString("Para cambiar de instrumento presione HOME", 20, 530);
+	/*ofDrawBitmapString("Para cambiar de instrumento presione HOME", 20, 530);
 	ofDrawBitmapString("Para elegir instrumento presione UP, DOWN", 20, 560);
 	ofDrawBitmapString("Para confirmar instrumento presione A", 20, 590);
-	
-	
-	//camb_inst.draw(20, 530);
-	//sel_inst.draw(270, 530);
-	//conf_inst.draw(520, 530);
+	*/
+	ofSetColor(ofColor(255,175,0));
+	camb_inst.draw(40, 530);
+	sel_inst.draw(420, 530);
+	conf_inst.draw(800, 530);
 
 }
 

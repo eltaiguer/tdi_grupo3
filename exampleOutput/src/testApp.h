@@ -52,7 +52,7 @@ public:
 
 	Estructura* e;
 
-	ofImage wiimoteI,wiimoteII,wiimoteIII,wiimoteIV,bateria,bateria_selected,piano,maracas,maracas_selected,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected;
+	ofImage wiimoteI,wiimoteII,wiimoteIII,wiimoteIV,bateria,bateria_selected,piano,maracas,maracas_selected,piano_selected,guitarra,guitarra_selected,flauta,flauta_selected,piccolo,piccolo_selected;
 	ofImage sel_inst, camb_inst, conf_inst;
 	bool muestroTambor,muestroPiano,muestroGuitarra,muestroFlauta;
 };
