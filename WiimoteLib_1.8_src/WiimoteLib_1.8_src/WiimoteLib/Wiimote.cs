@@ -1213,19 +1213,24 @@ namespace WiimoteLib
 		/// <param name="leds">The value to be lit up in base2 on the Wiimote</param>
 		public void SetLEDs(int leds)
 		{
-			mWiimoteState.LEDState.LED1 = (leds & 0x01) > 0;
-			mWiimoteState.LEDState.LED2 = (leds & 0x02) > 0;
-			mWiimoteState.LEDState.LED3 = (leds & 0x04) > 0;
-			mWiimoteState.LEDState.LED4 = (leds & 0x08) > 0;
+            //mWiimoteState.LEDState.LED1 = (leds & 0x01) > 0;
+            //mWiimoteState.LEDState.LED2 = (leds & 0x02) > 0;
+            //mWiimoteState.LEDState.LED3 = (leds & 0x04) > 0;
+            //mWiimoteState.LEDState.LED4 = (leds & 0x08) > 0;
+
+            mWiimoteState.LEDState.LED1 = leds == 1;
+            mWiimoteState.LEDState.LED2 = leds == 2;
+            mWiimoteState.LEDState.LED3 = leds == 3;
+            mWiimoteState.LEDState.LED4 = leds == 4;
 
 			byte[] buff = CreateReport();
 
 			buff[0] = (byte)OutputReport.LEDs;
 			buff[1] =	(byte)(
-						((leds & 0x01) > 0 ? 0x10 : 0x00) |
-						((leds & 0x02) > 0 ? 0x20 : 0x00) |
-						((leds & 0x04) > 0 ? 0x40 : 0x00) |
-						((leds & 0x08) > 0 ? 0x80 : 0x00) |
+                        (mWiimoteState.LEDState.LED1 ? 0x10 : 0x00) |
+                        (mWiimoteState.LEDState.LED2 ? 0x20 : 0x00) |
+                        (mWiimoteState.LEDState.LED3 ? 0x40 : 0x00) |
+                        (mWiimoteState.LEDState.LED4 ? 0x80 : 0x00) |
 						GetRumbleBit());
 
 			WriteReport(buff);

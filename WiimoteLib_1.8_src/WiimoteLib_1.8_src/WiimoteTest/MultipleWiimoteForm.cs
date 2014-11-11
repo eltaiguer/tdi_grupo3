@@ -63,7 +63,8 @@ namespace WiimoteTest
 					wm.SetReportType(InputReport.IRExtensionAccel, IRSensitivity.Maximum, true);
 				
 				wm.SetLEDs(index);
-                wiimoteIdMap.Add(wm.ID, index++);
+                wiimoteIdMap.Add(wm.ID, index);
+                index++;
 			}
 		}
 
