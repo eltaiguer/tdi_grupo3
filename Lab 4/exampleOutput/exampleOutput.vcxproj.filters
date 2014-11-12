@@ -79,6 +79,21 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
       <Filter>addons\ofxOsc\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Estructura.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nunchuk.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WiiData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Wiimote.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Controller.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -232,6 +247,21 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
       <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Estructura.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nunchuk.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WiiData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Wiimote.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Controller.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

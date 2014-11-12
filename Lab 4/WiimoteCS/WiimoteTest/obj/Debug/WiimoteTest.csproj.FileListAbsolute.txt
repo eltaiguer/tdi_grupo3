@@ -1,0 +1,48 @@
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.exe
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.exe
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.dll
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.Properties.Resources.resources
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csproj.GenerateResource.Cache
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.xml
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.MainForm.resources
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.exe
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.pdb
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.exe
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.pdb
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.dll
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.pdb
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.xml
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csprojResolveAssemblyReference.cache
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.MainForm.resources
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.Properties.Resources.resources
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csproj.GenerateResource.Cache
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.exe
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.pdb
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.exe
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.pdb
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\Ventuz.OSC.dll
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.dll
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.pdb
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.xml
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\bin\Debug\Ventuz.OSC.xml
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csprojResolveAssemblyReference.cache
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.MainForm.resources
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.Properties.Resources.resources
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csproj.GenerateResource.Cache
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.exe
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.exe
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\WiimoteTest.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\Ventuz.OSC.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\WiimoteLib.xml
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Debug\Ventuz.OSC.xml
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csprojResolveAssemblyReference.cache
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.MainForm.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.Properties.Resources.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Debug\WiimoteTest.csproj.GenerateResource.Cache

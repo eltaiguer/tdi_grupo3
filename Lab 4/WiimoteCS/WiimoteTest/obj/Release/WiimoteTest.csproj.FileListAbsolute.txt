@@ -1,0 +1,24 @@
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.exe
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Release\WiimoteTest.exe
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Release\WiimoteTest.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Release\WiimoteLib.dll
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\bin\Release\WiimoteLib.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.Properties.Resources.resources
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.csproj.GenerateResource.Cache
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.MainForm.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.exe
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\WiimoteTest.exe
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\WiimoteTest.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\Ventuz.OSC.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\WiimoteLib.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\WiimoteLib.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\bin\Release\Ventuz.OSC.xml
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.csprojResolveAssemblyReference.cache
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.MainForm.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.Properties.Resources.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.csproj.GenerateResource.Cache
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.MultipleWiimoteForm.resources
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteTest\obj\Release\WiimoteTest.WiimoteInfo.resources

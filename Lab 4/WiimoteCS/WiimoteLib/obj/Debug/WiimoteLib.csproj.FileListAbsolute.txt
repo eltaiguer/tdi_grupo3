@@ -1,0 +1,24 @@
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.dll
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.dll
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.pdb
+C:\Projects\Personal\Wiimote\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.XML
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.XML
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.dll
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.pdb
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.csprojResolveAssemblyReference.cache
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.dll
+C:\Users\Gaston\Facultad\TDI\Obligatorio 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.pdb
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.XML
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.dll
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.pdb
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.csprojResolveAssemblyReference.cache
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.dll
+C:\Directorios\Documentos\TDI\Tarea 4\wiimotelib-96133\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.XML
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\bin\Debug\WiimoteLib.pdb
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.csprojResolveAssemblyReference.cache
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.dll
+E:\Facultad\tdi\lab 4\WiimoteCS\WiimoteLib\obj\Debug\WiimoteLib.pdb
